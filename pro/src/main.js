@@ -6,10 +6,14 @@ import router from './router'
 
 
 import Vant from 'vant';
+import 'vant/lib/index.css';
 import store from './store';
+import $ from 'n-zepto'
+// import 'lib-flexible/flexible'
 
 
 Vue.use(Vant);
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
