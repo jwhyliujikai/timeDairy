@@ -19,6 +19,7 @@ import Evaluate from '@/views/Evaluate'
 import bkelist from '@/data/bkelist'
 import prolist from '@/data/prolist';
 import Swiper from '@/views/Swiper'
+import Setting from '@/views/Setting'
 Vue.use(Router)
 
 export default new Router({
@@ -99,6 +100,10 @@ export default new Router({
         {
             path: '/swiper',
             component: Swiper
+        },
+        {
+            path: '/setting',
+            component: Setting
         }
     ]
 })

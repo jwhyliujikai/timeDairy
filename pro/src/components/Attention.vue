@@ -14,8 +14,8 @@
                    </li>
              </ul>
              </div>
-             <p id='yjgz'><router-link to='/attentioninfos' tag='span'>一键关注</router-link></p>
-             <button @click='adduser'>关注测试</button>
+             <p id='yjgz'><router-link @click="yjgz" to='/attentioninfos' tag='span'>一键关注</router-link></p>
+            
              </van-pull-refresh>
              
   </div>
@@ -53,6 +53,19 @@ export default {
       //       console.log('取关')  
       // }
     },
+    yjgz(){
+      for(var i=0;i<this.attionslist.length;i++){
+        axios({
+          url:'http://10.8.157.61/addAtt',
+          params:{
+            userId:24,
+            addUserAttId:this.attionslist[i]
+          }
+        }).then((data)=>{
+          console.log(data);
+        })
+      }
+    },
     adduser(){
       console.log(this.attionslist)
     },
@@ -88,8 +101,9 @@ li{
 
 #inner{
   margin-top:46px; 
-  margin-bottom: 46px;
-}
+  height:100%;
+  /* margin-bottom: 46px; */
+} 
 #inner>p:nth-of-type(1){
   width: 100%;
   height: 20px;
@@ -108,6 +122,7 @@ li{
 }
 #wnav{
   width: 90%;
+  height:auto;
   /* background: pink; */
   margin: 0 auto;
 }

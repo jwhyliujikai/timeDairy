@@ -11,14 +11,14 @@
            </div>
            
            <p>{{item.userName}}</p>
-           <p>3秒前   宝宝2岁</p>
+           <p>{{item.dynTime}}   {{item.userBabyDyn}}</p>
          </div>
          <div id="content">
-           <p>{{item.communityDesc}}</p>
+           <p>{{item.userDyn}}</p>
            <span @click="sah($event)">全部</span>
            </div>
         <div id="pic">
-          <img :src='item.communityImg'/>
+          <img src='https://i01piccdn.sogoucdn.com/c0d5ead4fd91d44e'/>
         </div>
         <div id="fpz">
           <ul>
@@ -60,20 +60,22 @@ export default {
         this.$toast('刷新成功');
         this.isLoading = false;
          axios({
-            url:"http://nj9jzc.natappfree.cc/bklist"
+            url:"http://10.8.157.61/attList",
+            params:{userId:24}
           }).then((data)=>{
-            
-            this.list=data.data.list;
+            this.list=data.data;
+      
           })
             }, 500);
       }
   },
   mounted(){
     axios({
-      url:"http://nj9jzc.natappfree.cc/bklist"
+      url:"http://10.8.157.61/attList",
+      params:{userId:24}
     }).then((data)=>{
-      
-      this.list=data.data.list;
+      this.list=data.data;
+  
     })
   }
 }
@@ -133,7 +135,7 @@ padding:0;
 
 }
 #title p:nth-of-type(2){
-  width: 100px;
+  width: 200px;
   top:50px;
   left: 90px;
   height: 20px;

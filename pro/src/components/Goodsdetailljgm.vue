@@ -125,6 +125,7 @@ export default {
   width: 70%;
   height: 30px;
   font-size: 16px;
+  overflow:hidden;
 }
 #title p:nth-of-type(2){
    float: left;

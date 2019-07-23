@@ -99,7 +99,7 @@ export default {
     },
     mounted(){
         axios('http://10.8.157.61/getAppGoods').then((data)=>{
-            console.log(data.data);
+            // console.log(data.data);
             this.list=data.data;
         })
     }

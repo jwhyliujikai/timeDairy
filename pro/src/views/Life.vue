@@ -57,6 +57,6 @@ export default {
         margin: 0 5px;
     }
     #body{
-        height: 100%;
+        height: 500px;
     }
 </style>
