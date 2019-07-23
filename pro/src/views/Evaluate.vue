@@ -23,7 +23,7 @@
                     <li>有效实用(127)</li>
                     <li>手感好(2434)</li>
                     <li>售后好(2342)</li>
-                    <li class="animated fadeOut">差评(1)</li>
+                    <li class="animated fadeOut ">差评(1)</li>
                 </ul>
                 
                 <p>

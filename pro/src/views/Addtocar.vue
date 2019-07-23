@@ -96,7 +96,7 @@ export default {
                 axios({
                 url:'http://10.8.157.61/addShop',
                 params:{
-                  userId:24,
+                  userId:localStorage.getItem('token'),
                   goodsId:this.$route.query.id,
                   goodsNum:this.value
                 }
