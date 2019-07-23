@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+//
 import HelloWorld from '@/components/HelloWorld'
 
 import Index from '../components/Index'
@@ -17,6 +19,7 @@ import Foodlist from '@/components/Foodlist'
 //  import IScroll from 'iscroll';
 import Cookbook from '@/views/Cookbook'
 import All from '@/views/All'
+
 
 
 import Attention from '@/components/Attention'
@@ -38,9 +41,21 @@ import prolist from '@/data/prolist';
 import Swiper from '@/views/Swiper'
 import Setting from '@/views/Setting'
 
+import Mine from "@/views/mine"
+import Center from "@/views/center"
+import Order from "@/views/order"
+import Coupon from "@/views/coupon"
+import Send from '@/components/send'
+import Cart from '@/views/cart'
+import Carts from '@/data/Carts'
+import Myselect from '@/views/myselect'
+import Setup from '@/views/setup'
+
+
 Vue.use(Router)
     // Vue.use(IScrollView, IScroll)
 export default new Router({
+
     routes: [{
             path: '/',
             redirect: "/footer",
@@ -50,21 +65,26 @@ export default new Router({
             redirect: '/index',
             component: Footer,
             children: [{
-                path: '/index',
-                component: Index
-            }, {
-                path: '/life',
-                redirect: '/attention',
-                component: Life,
-                children: [{
-                    path: '/attention',
-                    component: Attention
+                    path: '/index',
+                    component: Index
                 }, {
-                    path: '/attentioninfos',
-                    component: Attentioninfos
-                }]
+                    path: '/mine',
+                    component: Mine
+                },
+                {
+                    path: '/life',
+                    redirect: '/attention',
+                    component: Life,
+                    children: [{
+                        path: '/attention',
+                        component: Attention
+                    }, {
+                        path: '/attentioninfos',
+                        component: Attentioninfos
+                    }]
 
-            }]
+                }
+            ]
         },
         {
             path: '/cookbook',
@@ -107,74 +127,110 @@ export default new Router({
                 }
 
             ]
-        },
-        {
+        }, {
+            path: '/cookbook',
+            redirect: '/shipu',
+            component: Cookbook,
+            children: [{
+                    path: '/wine',
+                    name: "wine",
+                    component: Wine,
+                },
+                {
+                    path: '/all',
+                    component: All
+                },
+                {
+                    path: '/question',
+                    component: Question
+                }, {
+                    path: '/superpro',
+                    component: Superpro,
+                    redirect: '/superproindex',
+                    children: [{
+                            path: '/superproindex',
+                            component: Superproindex
+                        },
+                        {
+                            path: '/qingjie',
+                            name: 'Qingjie',
+                            component: Qingjie
+                        },
+
+                        {
+                            path: '/more',
+                            component: More
+                        },
+                        {
+                            path: '/bbbbei',
+                            component: Bbbbei
+                        },
+                        {
+                            path: '/community',
+                            component: Community
+                        }
+
+                    ]
+                },
+                {
+                    path: '/goodsdetail',
+                    redirect: '/goodsdetailindex',
+                    component: Goodsdetail,
+                    children: [{
+                        path: '/goodsdetailindex',
+                        name: 'Goodsdetailindex',
+                        component: Goodsdetailindex
+                    }, {
+                        path: '/goodsdetailljgm',
+                        name: 'Goodsdetailljgm',
+                        component: Goodsdetailljgm
+                    }]
+                },
+                {
+                    path: '/addtocar',
+                    name: 'Addtocar',
+                    component: Addtocar
+                },
+                {
+                    path: '/evaluate',
+                    component: Evaluate
+                },
+                {
+                    path: '/swiper',
+                    component: Swiper
+                },
+                {
+                    path: '/setting',
+                    component: Setting
+                },
+            ]
+        }, {
             path: '/all',
             component: All
-        },
-        {
+        }, {
             path: '/question',
             component: Question
         }, {
-            path: '/superpro',
-            component: Superpro,
-            redirect: '/superproindex',
-            children: [{
-                    path: '/superproindex',
-                    component: Superproindex
-                },
-                {
-                    path: '/qingjie',
-                    name: 'Qingjie',
-                    component: Qingjie
-                },
-
-                {
-                    path: '/more',
-                    component: More
-                },
-                {
-                    path: '/bbbbei',
-                    component: Bbbbei
-                },
-                {
-                    path: '/community',
-                    component: Community
-                }
-
-            ]
-        },
-        {
-            path: '/goodsdetail',
-            redirect: '/goodsdetailindex',
-            component: Goodsdetail,
-            children: [{
-                path: '/goodsdetailindex',
-                name: 'Goodsdetailindex',
-                component: Goodsdetailindex
-            }, {
-                path: '/goodsdetailljgm',
-                name: 'Goodsdetailljgm',
-                component: Goodsdetailljgm
-            }]
-        },
-        {
-            path: '/addtocar',
-            name: 'Addtocar',
-            component: Addtocar
-        },
-        {
-            path: '/evaluate',
-            component: Evaluate
-        },
-        {
-            path: '/swiper',
-            component: Swiper
-        },
-        {
-            path: '/setting',
-            component: Setting
+            path: '/center',
+            component: Center
+        }, {
+            path: '/order',
+            component: Order
+        }, {
+            path: '/coupon',
+            component: Coupon
+        }, {
+            path: '/send',
+            component: Send
+        }, {
+            path: '/cart',
+            component: Cart
+        }, {
+            path: '/myselect',
+            component: Myselect
+        }, {
+            path: '/setup',
+            component: Setup
         }
-
     ]
 })

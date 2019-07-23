@@ -15,6 +15,10 @@ import 'swiper/dist/css/swiper.css'
 
 import Vant from 'vant';
 import 'vant/lib/index.css';
+
+
+//import 'lib-flexible/flexible';
+
 import store from './store';
 // import 'lib-flexible/flexible'
 
@@ -26,7 +30,9 @@ Vue.use(Vant);
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+
+
+
 new Vue({
     el: '#app',
     router,

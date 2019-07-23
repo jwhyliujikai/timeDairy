@@ -139,7 +139,7 @@ export default {
 }
 #yhq{
     width: 100%;
-    height: 50px;
+    height: 30px;
     position: absolute;
     top:80px;
     border-radius: 10px;
