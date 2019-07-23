@@ -70,14 +70,19 @@ export default {
         //关注用户
         gz(e,a){
             var el=e.target;
-            if($(el).html()=='取消关注'){
-                Toast('已取消关注')
-                $(el).html('+关注');
-            }else{ 
-                Toast('已关注')
-                $(el).html('取消关注');
+            if(!localStorage.getItem('token')){
+                Toast('请先登录');
+            }else{
+                if($(el).html()=='取消关注'){
+                    Toast('已取消关注')
+                    $(el).html('+关注');
+                }else{ 
+                    Toast('已关注')
+                    $(el).html('取消关注');
 
+                }
             }
+            
             
            
         },
@@ -205,7 +210,7 @@ export default {
  #comlist{
      width: 100%;
      height: 40px;
-
+     z-index:2;
      position: relative;
  }
  #comlist ul{

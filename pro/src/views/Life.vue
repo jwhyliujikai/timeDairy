@@ -58,5 +58,6 @@ export default {
     }
     #body{
         height: 500px;
+        margin-bottom: 46px;
     }
 </style>

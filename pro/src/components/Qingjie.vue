@@ -80,12 +80,12 @@ export default {
     flex-wrap: wrap;
     justify-content:space-between;
     align-items: center;
-    margin-top: 10px; 
+   
   }
   #list1 li{
     width: 45%;
     height: 170px;
-
+ margin-top: 20px; 
   }
   #list1 li img{
     width: 100%;

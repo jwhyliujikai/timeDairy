@@ -21,7 +21,7 @@ export default {
 }
     #footer{
         width: 100%;
-        height: 40px;
+        height: 46px;
         background: red;
         position:fixed;
         bottom: 0;

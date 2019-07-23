@@ -2,8 +2,8 @@
   <div id="inner">
     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
 
-
-      <div id="bkelist" v-for="item in list">
+       <div v-if='!list.length==0'>
+      <div id="bkelist" v-for="item in list" >
          <div id="title">
            <div id="img">
              <van-icon name="checked" color="gold" size="16px" id="icon"/>
@@ -27,6 +27,10 @@
             <li><van-icon name="like-o" />9999</li>
           </ul>
         </div>
+      </div>
+      </div>
+      <div v-else>
+        还未关注任何人哦
       </div>
       </van-pull-refresh>
   </div>
@@ -99,13 +103,13 @@ padding:0;
     right:0;
 }
 #inner{
-  margin-top: 40px;
+  margin-top: 46px;
   overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
- 
+ margin-bottom: 46px;
 }
 #bkelist{
   width: 100%;

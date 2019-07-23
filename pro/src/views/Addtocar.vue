@@ -73,7 +73,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import {Toast} from 'vant'
 export default {
   name: 'Addtocar',
   data () {
@@ -88,16 +89,24 @@ export default {
              this.$router.go(-1) ;         
         },
         addtocar(){
-          axios({
-              url:'http://10.8.157.61/addShop',
-              params:{
-                userId:24,
-                goodsId:this.$route.query.id,
-                goodsNum:this.value
-              }
-            }).then((data)=>{
-              console.log(data);
-            })
+          if(!localStorage.getItem('token')){
+             Toast('请先登录');
+
+          }else{
+                axios({
+                url:'http://10.8.157.61/addShop',
+                params:{
+                  userId:24,
+                  goodsId:this.$route.query.id,
+                  goodsNum:this.value
+                }
+              }).then((data)=>{
+                 if(data.status==200){
+                   Toast('添加成功');
+                 }
+              })
+          }
+        
         }
     },
     mounted(){

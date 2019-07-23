@@ -14,7 +14,7 @@
                    </li>
              </ul>
              </div>
-             <p id='yjgz'><router-link @click="yjgz" to='/attentioninfos' tag='span'>一键关注</router-link></p>
+             <p id='yjgz'><span @click="yjgz"  >一键关注</span></p>
             
              </van-pull-refresh>
              
@@ -22,7 +22,8 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import {Toast} from 'vant';
 export default {
   name: 'Attentioninfos',
   data(){
@@ -54,17 +55,28 @@ export default {
       // }
     },
     yjgz(){
-      for(var i=0;i<this.attionslist.length;i++){
-        axios({
-          url:'http://10.8.157.61/addAtt',
-          params:{
-            userId:24,
-            addUserAttId:this.attionslist[i]
+      if(!localStorage.getItem('token')){
+          Toast('请先登录');
+      }else{
+            if(this.attionslist.length==0){
+              this.$router.push('/community');
+          }else{
+              for(var i=0;i<this.attionslist.length;i++){
+              axios({
+                url:'http://10.8.157.61/addAtt',
+                params:{
+                  userId:24,
+                  addUserAttId:this.attionslist[i]
+                }
+              }).then((data)=>{
+                this.$router.push('/attentioninfos');
+              })
+            }
           }
-        }).then((data)=>{
-          console.log(data);
-        })
+
       }
+      
+      
     },
     adduser(){
       console.log(this.attionslist)

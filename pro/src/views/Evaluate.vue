@@ -53,7 +53,10 @@
                     <img :src="item.appImg" alt="">
                 </div>
                 <div id="repinfos">
-                    小编回复:感谢光临，您的满意是我们最大的追求  
+                    小编回复:感谢光临，您的满意是我们最大的追求
+                    感谢光临，您的满意是我们最大的追求
+                    感谢光临，您的满意是我们最大的追求
+                    
                 </div>
             </div>
         </div>
@@ -251,7 +254,8 @@ export default {
 }
 #repinfos{
     width: 99%;
-    height: 50px;
+    height: auto;
+    line-height: 200x;
 
     border:1px solid #cecece;
 }

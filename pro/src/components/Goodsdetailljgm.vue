@@ -61,13 +61,14 @@
         </div>
      </div>
      <div id="footer">
-          <p>确认</p>
+          <p @click="ljgm">确认</p>
      </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import {Toast} from "vant";
 export default {
   name: 'Goodsdetailljgm',
   data () {
@@ -76,6 +77,16 @@ export default {
       value1:1,
       goods:{}
     }
+  },
+  methods:{
+    ljgm(){
+      if(!localStorage.getItem('token')){
+         Toast('请先登录');
+      }else{
+         this.$router.push("/addtocar?id="+this.$route.query.id);
+      }
+    }
+
   },
   mounted(){
       axios({
