@@ -19,14 +19,21 @@
 </template>
 
 <script>
+
 export default {
+	
 methods: {
     onClickLeft() {
        this.$router.go(-1)
     },
     tap(){
         this.$router.push("/send")
+    },
+    afterRead(file) {
+      // 此时可以自行将文件上传至服务器
+      console.log(file);
     }
+    
   }
 }
 </script>

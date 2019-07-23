@@ -35,24 +35,13 @@
                 <van-row style="margin-top:20px">
                     <van-col span="10" offset="8">时光会员  专享好货</van-col>
                 </van-row>
-               <van-grid :border="false" :column-num="2" gutter="40">
-                    <van-grid-item>
-                        <van-image src="https://img.yzcdn.cn/vant/apple-1.jpg" />
-                        <p>时光记</p>
-                    </van-grid-item>
-                    <van-grid-item>
-                        <van-image src="https://img.yzcdn.cn/vant/apple-2.jpg" />
-                        <p>时光记</p>
-                    </van-grid-item>
-                    <van-grid-item>
-                        <van-image src="https://img.yzcdn.cn/vant/apple-3.jpg" />
-                        <p>时光记</p>
-                    </van-grid-item>
-                    <van-grid-item>
-                        <van-image src="https://img.yzcdn.cn/vant/apple-3.jpg" />
-                        <p>时光记</p>
+               <van-grid :border="false" :column-num="2" >
+                    <van-grid-item v-for="item in list1" >
+                        <img :src="item.goodsImg" style="height:200px;width:160px"/>
+                        <p>{{item.goodsName}}</p>
                     </van-grid-item>
                 </van-grid>
+                
         
     </div>
 </template>
@@ -62,7 +51,8 @@
 export default {
 data(){
 	return{
-		list:""
+		list:"",
+		list1:""
 	}
 },
   methods: {
@@ -79,9 +69,18 @@ data(){
             }).then((data)=>{
                 //console.log(data.data.list.length)
                 this.list =data.data 
-                console.log(this.list)
+                //console.log(this.list)
             })
-            
+            axios({
+            	method:"get",
+            	//http://10.8.157.61/v2/api-docs 
+                url:'http://10.8.157.61/goodsList',
+                // data:{token:token}
+            }).then((data)=>{
+                //console.log(data.data.list.length)
+                this.list1 =data.data 
+                console.log(this.list1)
+            })
            
         },
 

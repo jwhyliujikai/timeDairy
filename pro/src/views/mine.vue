@@ -7,14 +7,9 @@
     <div style="display:flex;justify-content: center;align-items:center;flex-direction: column;">
     	<span>我的</span>
     	<div class="cir" style="display:block;height:100px;border-radius:50px;width:100px;background:#eee;margin:15px 0;text-align: center;line-height:100px;overflow: hidden;">
-    		<van-uploader
-    		preview-size="100"	
-  v-model="fileList"
-  multiple
-  :max-count="1"
-/>
+    		<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2674784041,3062714288&fm=26&gp=0.jpg"/>
     	</div>
-    	<span style="font-size:16px;display: block;">生活达人</span>
+    	<span style="font-size:16px;display: block;">{{name}}</span>
     </div>
     
 </van-row>
@@ -41,13 +36,27 @@
 </van-swipe>
 </template>
 <script>
+	import axios from 'axios'
 export default {
 	data() {
     return {
+    	name:"",
+    	nameimg:"",
       fileList: [
         { url: 'https://img.yzcdn.cn/vant/cat.jpeg' }
       ]
     }
+ },
+ mounted(){
+ 	axios({
+ 		url:"http://10.8.157.61/mymain",
+ 		//params:{userId:this.$route.state.token}
+ 		params:{userId:24}
+ 	}).then((data)=>{
+ 		console.log(data.data)
+ 		this.name=data.data[0].username
+ 		this.nameimg=data.data[0].headImg
+ 	})
  },
    methods: {
        tap(){
