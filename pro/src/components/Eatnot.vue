@@ -12,6 +12,13 @@
          <ul>
              <router-link tag='li' class="search" v-for='item in data' @click="top($event)" :to="{name:'wine',query:{a:item.foodsId}}">{{item.foodsName}}</router-link>
             
+
+            <!-- <div slot="action" @click="onSearch">搜索</div> -->
+        </van-search> 
+         <ul>
+             <router-link tag='li' class="search" v-for='item in data' @click="top($event)" :to="{name:'wine',query:{a:item.foodsId}}">{{item.foodsName}}</router-link>
+             <!-- <li class="search" v-for='item in data' @click="top($event,item.foodsId)">{{item.foodsName}}</li> -->
+
          </ul>
         <div id="foodslist">
         <router-view></router-view>
@@ -39,20 +46,17 @@ export default {
          //console.log(oLi.innerHTML)
     },
     methods: {
-        change(){
-            
+        change(){            
             axios({
             url:'http://10.8.157.61/queryfoods',
             params:{foodsName:this.value}
         }).then((data)=>{
+
             this.data=data.data;
-           
-           
         });
 
         },
-        onSearch(){
-            
+        onSearch(){ 
             axios({
             url:'http://10.8.157.61/queryfoods',
             params:{foodsName:this.value}
@@ -65,7 +69,10 @@ export default {
            })
            
         })
-        
+          this.data=data.data;
+          console.log(this.data)
+           
+        }
 
         },
         top(e){
@@ -74,10 +81,10 @@ export default {
             this.value= $(el).html();
             // this.$route.push('/')
         }
-    },
+    }
     
 
-}
+
 </script>
 <style scoped=''>
     #foodlist{

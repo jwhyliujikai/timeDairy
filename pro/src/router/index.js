@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+//
 import HelloWorld from '@/components/HelloWorld'
 import Index from '../components/Index'
 import Footer from '@/views/Footer'
@@ -12,14 +14,25 @@ import Wine from '@/components/Wine'
 import kprolist from '@/data/kprolist'
 import Mainfood from '@/components/Mainfood'
 import Foodlist from '@/components/Foodlist'
-// import IScrollView from 'vue-iscroll-view'
-//  import IScroll from 'iscroll';
+
 import Cookbook from '@/views/Cookbook'
 import All from '@/views/All'
+
+
+import Mine from "@/views/mine"
+import Center from "@/views/center"
+import Order from "@/views/order"
+import Coupon from "@/views/coupon"
+import Send from '@/components/send'
+import Cart from '@/views/cart'
+import Carts from '@/data/Carts'
+import Myselect from '@/views/myselect'
+import Setup from '@/views/setup'
 
 Vue.use(Router)
 // Vue.use(IScrollView, IScroll)
 export default new Router({
+
   routes: [
     {
       path: '/',
@@ -35,7 +48,10 @@ export default new Router({
         {
           path:'/index',
           component:Index
-        }
+        },{
+        path: '/mine',
+        component: Mine
+    },
       ]
     },
     {
@@ -44,7 +60,7 @@ export default new Router({
       component:Cookbook,
       children:[
         {               
-          path:'/wine/',
+          path:'/wine',
           name:"wine",
           component:Wine,  
         },
@@ -52,25 +68,21 @@ export default new Router({
           path:"/shipu",
           component:Shipu
         },
-        {
-          path:'/eatnot',
-          component:Eatnot,
-          redirect:'/foodlist',
-          children:[ 
-             {
-              path:'/foodlist',
-              component:Foodlist
+       {
+         path:'/eatnot',
+         component:Eatnot,
+         redirect:'/foodlist',
+         children:[ 
+            {
+             path:'/foodlist',
+             component:Foodlist
           },
-          {
-            path:'/mainfood/:id',
-            component:Mainfood,
-          },
-          
-        ],
-
-          
-        },
-        
+         {
+           path:'/mainfood/:id',
+           component:Mainfood,
+         },          
+       ],          
+       },        
         {
           path:'/yingyang',
           component:Yingyang
@@ -89,7 +101,28 @@ export default new Router({
     {
       path:'/question',
       component:Question
-    },
+    }, {
+        path: '/center',
+        component: Center
+    }, {
+        path: '/order',
+        component: Order
+    }, {
+        path: '/coupon',
+        component: Coupon
+    }, {
+        path: '/send',
+        component: Send
+    }, {
+        path: '/cart',
+        component: Cart
+    },{
+        path: '/myselect',
+        component: Myselect
+    },{
+        path: '/setup',
+        component: Setup
+    }
     
   ]
 })
