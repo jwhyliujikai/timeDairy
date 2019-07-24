@@ -19,24 +19,14 @@
 
             </ul>
         </div>
-
-
          <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         
         <ul class="klist">
-
-            <!-- <li> class="pro" v-for='item in data'>
+            <li class="pro" v-for='item in arr'>
                 <img :src="item.foodsImgUrl"/>
                 <div class="read">
-                    <p>{{item.foodDesc}}</p>
-                    <span>{{item.foodsName}}</span>
-            </li> -->
-            <li class="pro" v-for='item in list'>
-                <img :src="item.img"/>
-                <div class="read">
-                    <p>{{item.text}}</p>
-                    <span>9999人在阅读</span>
-
+                    <p>{{item.foodsName}}</p>
+                    <span>{{item.foodsDesc}}</span>
                 </div>
                
                 
@@ -54,7 +44,9 @@ export default {
             list:[],           
             isLoading: false,
             title:'食谱',
-            data:[]
+            data:[],
+            arr:[],
+
         }
     },
 
@@ -76,6 +68,7 @@ export default {
            this.list = data.data;
           // console.log(this.list)
         }),
+
          axios({
             url:'http://10.8.157.61/recipe'
         }).then((data)=>{
@@ -83,6 +76,17 @@ export default {
            this.data = data.data;
            console.log(this.data)
         }),
+
+        axios({
+            url:'http://10.8.157.61/recipe'
+        }).then((data)=>{
+            console.log(data.data)
+            this.arr = data.data;
+        })
+
+
+
+
          this.$emit('toparent',this.title)
     },
 }
@@ -92,19 +96,18 @@ export default {
     margin: 0;
     padding: 0;
 }
-     .log{
-        background: red;
-    
-    }
+
     .eat{
         display: flex;
+
         
+
+
+
         justify-content:space-around;
     }
     .eat li{
-        width: 30%;
-        
-        
+        width: 30%;        
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -114,13 +117,12 @@ export default {
         width: 50px;
        height: 50px;
        border-radius: 50%;
-        background:#000;
+        background:#ccc;
 
     }
     .eat li p{
         width:80px;
         height: 20px;
-       
         text-align: center
     }
     img{
@@ -136,17 +138,14 @@ export default {
     .pro{
         
         display: flex;
-        border: 1px solid red;
         margin-bottom: 10px;
-        border: 1px solid red;
         justify-content: space-between;
         align-items: center 
         
     }
     .read{
         width: 60%;
-        height: 70px;
-        
+        height: 70px;        
         display: flex;
         flex-direction: column;
         justify-content: space-between;
