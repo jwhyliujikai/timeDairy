@@ -23,14 +23,13 @@
    </van-col>
 </van-row>
 <van-cell-group style="margin-top:24px;margin-left:20px">
-  <van-cell title="会员中心" icon="circle" @click="tap()"/>
-  <van-cell title="我的收藏" icon="circle" @click="tap1()"/>
-  <van-cell title="购物车" icon="circle" @click="tap2()"/>
-  <van-cell title="我的订单" icon="circle" @click="tap3()"/>
-  <van-cell title="优惠券" icon="circle" @click="tap4()"/>
+  <van-cell title="会员中心" icon="circle" to="/center"/>
+  <van-cell title="我的收藏" icon="circle" to="/myselect"/>
+  <van-cell title="购物车" icon="circle" to="/cart"/>
+  <van-cell title="我的订单" icon="circle" to="/order"/>
+  <van-cell title="优惠券" icon="circle" to="/coupon"/>
 </van-cell-group>
 </div>
-
 
 </van-swipe>
 </template>
@@ -42,13 +41,11 @@ export default {
     return {
     	name:"未登录",
     	nameimg:"",
-      
     }
  },
  mounted(){
  	axios({
  		url:"http://10.8.157.61/mymain",
- 		//params:{userId:this.$route.state.token}
  		params:{userId:token}
  	}).then((data)=>{
  		console.log(data.data)
@@ -56,22 +53,7 @@ export default {
  		this.nameimg=data.data[0].headImg
  	})
  },
-   methods: {
-       tap(){
-           this.$router.push("/center")
-       },
-        tap1(){
-           this.$router.push("/myselect")
-       },
-        tap2(){
-           this.$router.push("/cart")
-       },
-        tap3(){
-           this.$router.push("/order")
-       },
-        tap4(){
-           this.$router.push("/coupon")
-       },
+   methods:{
         setup(){
           this.$router.push("/setup")
        }

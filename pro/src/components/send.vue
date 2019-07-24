@@ -9,16 +9,12 @@
                      <van-button round type="danger" style="background:none;color:#666;border:0.5vw solid orange" >联系配送员</van-button>
                     <van-button round type="danger" style="background:none;color:#666;border:0.5vw solid orange">催单</van-button>
                  </div>
-                 
              </div>
         </div>
         
        <div style="height:26vw;width:26vw;background:#fff;position:absolute;border-radius:26vw;top:8vw;left:37vw;border:0.5vw solid orange"></div>
     <!--占位-->
     <v-send style="padding-top:40vh;">
-    	
-    		
-    
     	<div :slot="sendC" style="height:86vw;width:90vw;background:#eee;position:absolute;border-radius:6vw;top:70vw;left:5vw">
             <van-cell value="商品信息" style="background:none"/>
             <!--<div style="display:flex;justify-content:space-around;align-items: center">-->
@@ -40,7 +36,6 @@
        <div style="height:20vw;width:90vw;background:#eee;position:absolute;border-radius:6vw;top:160vw;left:5vw">
            <van-cell value="订单信息" style="background:none;"/>
            <van-cell value="订单号：1924948484" style="background:none;"/>
-      
        	</div>
      </v-send>
     </div>
@@ -72,9 +67,7 @@ mounted(){
 		     params:{userId:2}
 		      	})
 		      	.then((data)=>{
-		      	//this.list=data.data
 		      	data.data.map((val,index)=>{
-		      		//console.log(val)
 		      		if(val.status==1){
 		      		this.list.push(val)
 		      		}
@@ -90,7 +83,5 @@ mounted(){
 </script>
 
 <style>
- /* div{
-    position: absolute;justify-content: center;align-items: center;border-radius:5 
-}  */
+ 
 </style>

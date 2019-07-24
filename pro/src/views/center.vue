@@ -16,7 +16,6 @@
                     <van-swipe-item class="logo" v-for="(item,i) in list" :key="i"><img style="height:30vh;width:100%" :src="item"></van-swipe-item>
                 </van-swipe>
           </div>
-               
                 	<van-grid :column-num="3" style="margin-top:3vh;" :gutter="10">
 				  <van-grid-item
 				    icon="vip-card-o"

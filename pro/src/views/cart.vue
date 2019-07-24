@@ -58,8 +58,7 @@ export default {
                 sum : 0,
                	bu:"",
                	ul:'',
-               	index1:[]
-               	
+               	index1:[]	
             }
         },
         methods: {
@@ -192,18 +191,5 @@ export default {
     bottom:0;
 }
 
-/*input[type='checkbox']{
-    width: 16px;
-    height: 16px;
-    background-color: #fff;
-    -webkit-appearance:none;
-    border: 1px solid #c9c9c9;
-    border-radius: 2px;
-    outline: none;
-}*/
- 
-/*.checkbox input[type=checkbox]:checked{
-   background: url("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=964899143,2534335338&fm=15&gp=0.jpg") 0 0/16px 16px no-repeat;
 
-}*/
 </style>
