@@ -148,12 +148,14 @@ li{
 }
 #nav li{
  width: 30%; 
+ height: 80px;
  /* background: lightblue; */
  margin-top: 20px;
 
 }
 #nav li img{
   width: 100%;
+  height:61px;
   border-radius: 50%;
 
 }
