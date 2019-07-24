@@ -11,19 +11,21 @@
             /> 
     	</div>
          
-          <div style="height:250px;">
-          	 <van-swipe :autoplay="3000" indicator-color="white" :height="200">
-                    <van-swipe-item class="logo" v-for="item in list"><img style="height:30vh;width:100%" :src="item"></van-swipe-item>
+          <div style="height:30vh;">
+          	 <van-swipe :autoplay="3000" indicator-color="white" style="height:30vh;">
+                    <van-swipe-item class="logo" v-for="(item,i) in list" :key="i"><img style="height:30vh;width:100%" :src="item"></van-swipe-item>
                 </van-swipe>
           </div>
                
                 	<van-grid :column-num="3" style="margin-top:3vh;" :gutter="10">
 				  <van-grid-item
 				    icon="vip-card-o"
+				    to="/points"
 				    text="我的积分"
 				  />
 				  <van-grid-item
 				    icon="label-o"
+				    to="/sign"
 				    text="签到"
 				  />
 				  <van-grid-item
@@ -37,7 +39,7 @@
                 </van-row>
                <van-grid :border="false" :column-num="2" >
                     <van-grid-item v-for="item in list1" >
-                        <img :src="item.goodsImg" style="height:200px;width:160px"/>
+                        <img :src="item.goodsImg" style="height:25vh;width:40vw"/>
                         <p>{{item.goodsName}}</p>
                     </van-grid-item>
                 </van-grid>

@@ -9,6 +9,8 @@ import Cart from '@/views/cart'
 import Carts from '@/data/Carts'
 import Myselect from '@/views/myselect'
 import Setup from '@/views/setup'
+import Sign from '@/views/sign'
+import Points from '@/views/points'
 Vue.use(Router)
 
 export default new Router({
@@ -36,5 +38,11 @@ export default new Router({
     },{
         path: '/setup',
         component: Setup
+    }, {
+        path: '/sign',
+        component: Sign
+    },{
+        path: '/points',
+        component: Points
     }]
 })

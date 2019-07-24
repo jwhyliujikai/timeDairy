@@ -1,0 +1,44 @@
+<template>
+<div>
+		<van-nav-bar 
+		title="我的积分" 
+		left-text="返回" 
+		:fixed="true" 
+		left-arrow 
+		@click-left="onClickLeft" />
+		<div style="margin-top:50px;">
+			我的积分:<span >{{points}}</span>
+		</div>
+		
+		
+	</div>
+</template>
+
+<script>
+import axios from 'axios'
+export default{
+	data(){
+		return {
+			points:""
+		}
+	},
+	methods:{
+	onClickLeft() {
+       this.$router.go(-1)
+   }
+	},
+	mounted(){
+		axios({
+    		url:"http://10.8.157.61/integral",
+    		params:{userId:22}
+    	}).then((data)=>{
+    		console.log(data)
+    		this.points=data.data
+    	})
+	}
+	
+}
+</script>
+
+<style>
+</style>
