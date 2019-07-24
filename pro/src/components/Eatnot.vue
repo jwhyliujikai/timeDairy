@@ -9,12 +9,12 @@
             >
             <div slot="action" @click="onSearch">搜索</div>
         </van-search> 
-         <ul>
-             <router-link tag='li' class="search" v-for='item in data' @click="top($event)" :to="{name:'wine',query:{a:item.foodsId}}">{{item.foodsName}}</router-link>
+        
             
 
             <!-- <div slot="action" @click="onSearch">搜索</div> -->
-        </van-search> 
+        
+
          <ul>
              <router-link tag='li' class="search" v-for='item in data' @click="top($event)" :to="{name:'wine',query:{a:item.foodsId}}">{{item.foodsName}}</router-link>
              <!-- <li class="search" v-for='item in data' @click="top($event,item.foodsId)">{{item.foodsName}}</li> -->
@@ -26,7 +26,7 @@
     </div>
 </template>
 <script>
-var oLi = document.querySelectorAll('.search')[0];
+
 //console.log(oLi)
 import axios from 'axios';
 export default {
@@ -34,11 +34,9 @@ export default {
     data(){
         return{
             value:'',
-            title:'能不能吃',
-            
+            title:'能不能吃',            
             data:[],
             arr:[],
-
         }
     },
     mounted(){

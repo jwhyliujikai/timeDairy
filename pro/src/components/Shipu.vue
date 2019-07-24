@@ -10,7 +10,7 @@
         </van-swipe-item>
         
         </van-swipe>
-
+    </div>
         <div style="margin-top:20px;background:orange;margin-bottom:10px">
             <ul class="eat">
                 <li><div></div><router-link tag="p" to='/eatnot'>能不能吃</router-link></li>  
@@ -25,12 +25,12 @@
         
         <ul class="klist">
 
-            <li class="pro" v-for='item in data'>
+            <!-- <li> class="pro" v-for='item in data'>
                 <img :src="item.foodsImgUrl"/>
                 <div class="read">
                     <p>{{item.foodDesc}}</p>
                     <span>{{item.foodsName}}</span>
-
+            </li> -->
             <li class="pro" v-for='item in list'>
                 <img :src="item.img"/>
                 <div class="read">
@@ -53,12 +53,8 @@ export default {
         return{
             list:[],           
             isLoading: false,
-
             title:'食谱',
             data:[]
-
-
-
         }
     },
 
