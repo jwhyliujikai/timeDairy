@@ -3,19 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+
 import 'vant/lib/index.css'
 import 'lib-flexible/flexible'
 import $ from 'n-zepto'
 import animated from 'animate.css'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
-
 // require styles
 import 'swiper/dist/css/swiper.css'
-
-
 import Vant from 'vant';
-import 'vant/lib/index.css';
-
+// import 'vant/lib/index.css';
 import store from './store';
 Vue.use(animated)
 Vue.use(VueAwesomeSwiper, /* { default global options } */ )
@@ -34,3 +31,17 @@ new Vue({
     components: { App },
     template: '<App/>'
 })
+
+
+
+import "vant/lib/index.css"
+import { Uploader } from 'vant'
+
+
+
+Vue.use(Uploader);
+
+
+
+
+

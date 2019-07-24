@@ -1,8 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-//
-import HelloWorld from '@/components/HelloWorld'
+
+
+
+import Both from "../views/Both.vue"
+import Login from "../views/Login.vue"
+import Share from 'vue-social-share'
+import Register from "../views/Register.vue"
+import Time from "../views/Time.vue"
+import Photo from "../views/Photo.vue"
+import Growth from "../views/Growth.vue"
+import Success from "../views/Success.vue"
+import Accom from "../views/Accom.vue"
+import Imginput from "../views/Imginput.vue"
+import Detils from "../views/Detils.vue"
+import 'vue-social-share/dist/client.css'
+
 
 import Index from '../components/Index'
 import Footer from '@/views/Footer'
@@ -65,7 +79,13 @@ export default new Router({
             path: '/footer',
             redirect: '/index',
             component: Footer,
-            children: [{
+            children: [  
+              {
+              path:"/time",
+              component:Time,
+              
+              },
+              {
                     path: '/index',
                     component: Index
                 }, {
@@ -239,6 +259,46 @@ export default new Router({
             path: '/sign',
             component: Sign
 
+        },
+        {
+          path: '/Both',
+          name: 'Both',
+          component: Both
+        },
+        {
+          path:"/Login",
+          component:Login
+        },
+        {
+          path:"/register",
+          component:Register
+        },
+        {
+          path:"/Photo",
+          component:Photo
+        },
+        {
+          path:"/Growth",
+          component:Growth
+        },
+        {
+          path:"/Success",
+          component:Success
+        },
+        {
+          path:"/Accom",
+          component:Accom
+        },
+        {
+          path:"/Imginput",
+          component:Imginput
+    
+        },
+        {
+          path:"/Detils",
+          component:Detils
         }
+       
     ]
 })
+
