@@ -20,11 +20,11 @@
          <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
         
         <ul class="klist">
-            <li class="pro" v-for='item in list'>
-                <img :src="item.img"/>
+            <li class="pro" v-for='item in arr'>
+                <img :src="item.foodsImgUrl"/>
                 <div class="read">
-                    <p>{{item.text}}</p>
-                    <span>9999人在阅读</span>
+                    <p>{{item.foodsName}}</p>
+                    <span>{{item.foodsDesc}}</span>
                 </div>
                
                 
@@ -41,7 +41,8 @@ export default {
         return{
             list:[],           
             isLoading: false,
-            title:'食谱'
+            title:'食谱',
+            arr:[],
         }
     },
 
@@ -63,6 +64,15 @@ export default {
            this.list = data.data;
           // console.log(this.list)
         }),
+        axios({
+            url:'http://10.8.157.61/recipe'
+        }).then((data)=>{
+            console.log(data.data)
+            this.arr = data.data;
+        })
+
+
+
          this.$emit('toparent',this.title)
     },
 }
@@ -72,18 +82,15 @@ export default {
     margin: 0;
     padding: 0;
 }
-     .log{
-        background: red;
-    
-    }
+
     .eat{
         display: flex;
-        /* background: red; */
+
         justify-content:space-around;
     }
     .eat li{
         width: 30%;
-        /* background: blue; */
+
         
         display: flex;
         flex-direction: column;
@@ -94,13 +101,13 @@ export default {
         width: 50px;
        height: 50px;
        border-radius: 50%;
-        background:#000;
+        background:#ccc;
 
     }
     .eat li p{
         width:80px;
         height: 20px;
-        /* background: red; */
+
         text-align: center
     }
     img{
@@ -116,9 +123,7 @@ export default {
     .pro{
         
         display: flex;
-        border: 1px solid red;
         margin-bottom: 10px;
-        border: 1px solid red;
         justify-content: space-between;
         align-items: center 
         
@@ -126,7 +131,6 @@ export default {
     .read{
         width: 60%;
         height: 70px;
-        /* background: red; */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
