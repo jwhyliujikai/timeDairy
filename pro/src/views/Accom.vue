@@ -11,8 +11,7 @@
         </header>
         <div id="content">
             <ul>
-                <li v-for="item in 10" :key="item">1</li>
-               
+                <li v-for="item in arr" :key="item"><img :src="item.headImg"></li>
             </ul>
         </div>
     </div>
@@ -20,16 +19,36 @@
 
 
 <script>
+import axios from 'axios';
 export default {
-    name:"Accom",
+    
     data(){
-        return{};
+        return{
+            name:"Accom",
+            Token:"",
+            arr:[]
+        };
     },
     methods:{
-        onClickLeft() {
+        onClickLeft(){
             this.$router.push("/time")
         }
-    }
+        
+    },
+    mounted(){
+            if(localStorage.getItem("Token")){
+                this.Token = localStorage.getItem("Token")
+                
+                axios({
+                    method:"get",
+                    url:"http://10.8.157.61/showbabydid",
+                    params:{userId:this.Token}
+                }).then((data)=>{
+                   
+                    this.arr=data.data
+                })
+            }
+        }
 }
 </script>
 
@@ -54,7 +73,7 @@ export default {
         display:flex;
         flex-direction:row;
         justify-content: space-around;
-        align-items: center;
+        
         flex-wrap:wrap
     }
     #content li{
@@ -62,7 +81,12 @@ export default {
         height:100px;
         background:#eee;
         border-radius:5px;
-        margin:2%
+        margin:2%;
+        border:1px solid #cccccc
         
+    }
+    #content li img{
+        width:100%;
+        height: 100%
     }
 </style>

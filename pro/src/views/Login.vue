@@ -58,21 +58,18 @@ export default {
             this.$router.push("/register")
         },
         btn(){
-            console.log(this.passWord,this.userName)
+           
             
             axios({
                     method:"get",
                     url:"http://10.8.157.61/login",
                     params:{password:this.passWord,username:this.userName}
                 }).then((data)=>{
-                    console.log(data)
-                    var data = data.data
-                    
+                    var data = data.data                   
                     if(data.status==1){
-                     console.log(data)
-                    this.$store.state.token=data.token
-                    this.$store.state.name=data.
-                    this.$router.push("/login")                   
+                    localStorage.setItem("Token",data.token)
+                    Toast("登录成功")
+                    this.$router.push("/index")                   
                     }else{
                         Toast("用户名或者密码错误")
                     }

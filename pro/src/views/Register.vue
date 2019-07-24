@@ -54,10 +54,11 @@ export default {
             this.$router.push("/login")
         },
         btn(){
+            
             if(this.username&&this.password&&this.email&&this.phone){
                     axios({
                     method:"get",
-                    url:"http://10.8.157.61//insertUser",
+                    url:"http://10.8.157.61/insertUser",
                     params:{username:this.username,password:this.password,email:this.email,phone:this.phone}
                 }).then((data)=>{
                     

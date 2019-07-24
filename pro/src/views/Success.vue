@@ -14,12 +14,12 @@
         <div id="content">
             <swiper id="swiper" ref="mySwiper" :options="swiperOption"> 
                 <!-- slides -->
-                <swiper-slide v-for="item in 5" :key="item">
+                <swiper-slide v-for="items in arr" :key="items">
                     <div id="background">
-                        <img src="https://img.yzcdn.cn/vant/apple-1.jpg" alt="2333">
+                        <img :src="items.headImg" alt="2333">
                         <div id="test">
-                            <h2>第一次叫妈妈</h2>
-                            <p>宝宝1岁2个月是18天了，第一次明确喊妈妈了，心都融化了</p>
+                            <h2>{{items.didTitle}}</h2>
+                            <p>{{items.didDesc}}</p>
                             <button>查看更多</button>
                             <em></em>
                         </div>
@@ -35,14 +35,17 @@
 
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-
+import axios from "axios"
 export default {
-    name:"Success",
+   
     
     data() {
       
       return {
-          
+        name:"Success",
+        arr:[],
+        img:"",
+
         swiperOption: {
             effect : 'coverflow',
             slidesPerView:3,
@@ -60,13 +63,30 @@ export default {
 
     methods:{
         onClickLeft() {
+            this.$router.push("/time")
         },
-        onClickRight() { 
+        onClickRight(){
+            this.$router.push("/photo") 
         },
+    
+        
     },
     components: {
         swiper,
         swiperSlide
+    },
+    mounted(){
+        axios({
+            method:"get",
+            url:"http://10.8.157.61/showbabydid",
+            params:{userId:2}
+        }).then((data)=>{
+            var data = data.data
+            this.arr=data
+            
+          
+            this.img= this.arr[0].didImg
+        })
     }
    
     }
@@ -134,6 +154,7 @@ export default {
         border:0;
         outline:none;
         border-radius:20px;
+        background: #fff
         
     }
     #test p{

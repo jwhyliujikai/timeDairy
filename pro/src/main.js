@@ -6,11 +6,11 @@ import router from './router'
 import Vant from 'vant'
 import store from './store'
 import "vant/lib/index.css"
-
+import { Uploader } from 'vant'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper, /* { default global options } */ )
-
+Vue.use(Uploader);
 Vue.use(Vant)
 Vue.config.productionTip = false
 

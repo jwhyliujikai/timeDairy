@@ -10,7 +10,7 @@ import Growth from "../views/Growth.vue"
 import Success from "../views/Success.vue"
 import Accom from "../views/Accom.vue"
 import Imginput from "../views/Imginput.vue"
-import test from "../views/test.vue"
+import Detils from "../views/Detils.vue"
 import 'vue-social-share/dist/client.css'
 
 
@@ -18,6 +18,7 @@ import 'vue-social-share/dist/client.css'
 Vue.use(Share)
 
 Vue.use(Router)
+
 
 
 export default new Router({
@@ -62,9 +63,9 @@ export default new Router({
 
     },
     {
-      path:"/test",
-      component:test
+      path:"/Detils",
+      component:Detils
     }
-    
+   
   ]
 })

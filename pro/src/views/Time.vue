@@ -3,14 +3,14 @@
         <header>
             <ul id="wq_box">
                 <li>
-                     <p>宝宝</p>
+                     <p>{{demo}}</p>
                 </li>
                 <li>
-                    <img src="https://img.yzcdn.cn/vant/cat.jpeg" alt="头像">
+                    <img :src="img" alt="头像">
                 </li>
                 <li>
-                    <span>ABC</span>
-                    <span>ABC</span>
+                    <span>{{id}}</span>
+                    <span>{{title}}</span>
 
                 </li>
 
@@ -28,12 +28,10 @@
                     <van-slider v-model="value" vertical active-color="#9f9f9f"/>
                 </div>
                 <ul id="details">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li v-for="item in arr" :key="item">
+                        <img :src="item.headImg" @click="detils">
+                    </li>
+                    
 
                 </ul>
            </div>
@@ -45,12 +43,20 @@
     </div>
 </template>
 <script>
+import axios from "axios"
+import { Toast } from 'vant';
     export default {
-        name:"Time",
+        
         data() {
             return {
             active: 2,
-            value: 50
+            value: 50,
+            name:"Time",
+            arr:[],
+            img:"",
+            title:"",
+            id:"",
+            demo:""
             };  
         },
         methods:{
@@ -62,8 +68,34 @@
             },
             accom(){
                 this.$router.push("/accom")
+            },
+            detils(){
+                this.$router.push("/detils")
             }
+        },
+        mounted(){
+            if(localStorage.getItem("Token")){
+                var token = localStorage.getItem("Token")
+                axios({
+                
+                method:"get",
+                url:"http://10.8.157.61/showbabydid",
+                params:{userId:token}
+            }).then((data)=>{
+                this.arr=data.data
+                this.img = data.data[0].headImg
+                this.title = data.data[0].userDesc
+                this.id = data.data[0].id
+                this.demo = data.data[0].userId
+                
+            })
+            }else{
+                Toast("请登录后查看")
+                this.$router.push("/login")
+            }
+            
         }
+
         
     }
 </script>
@@ -172,12 +204,16 @@
         padding:2%
     }
     #details li{
-        width:100%;
-        height:100px;
-        background:black;
+        width:99%;
+        height:200px;
+        border:1px solid #ccc;
         margin:2%;
         border-radius:10px;
     } 
+    #details li img{
+        width:100%;
+        height:100%;
+    }
 
 
 

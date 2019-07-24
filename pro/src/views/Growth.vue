@@ -26,21 +26,21 @@
             <li>
                <ul>
                    <li>
-                       <span>2018.8.16</span>
-                       <span>30天</span>
+                       <span>{{time}}</span>
+                       
                    </li>
                       
-                   <van-icon name="plus" />
+                   <van-icon class="jia" name="plus" @click="news"/>
                </ul>
                <ul>
-                   <li>属性支持传入图标名称或图片链接</li>
+                   <li>{{Desc}}</li>
                </ul>
                <ul>
-                   <li>身高50cm</li>
-                   <li>头围30cm</li>
+                   <li>身高:{{height}}cm</li>
+                   <li>头围:{{head}}cm</li>
                </ul>
                <ul>
-                   <li>体重6kg</li>
+                   <li>体重:{{weight}}kg</li>
                </ul>
             </li>
         </ul>
@@ -51,10 +51,18 @@
 
 <script>
 import axios from 'axios'
+import { Toast, CouponList } from 'vant';
 export default {
-    name:"Growth",
+    
     data() {
         return {
+            name:"Growth",
+            Desc:"",
+            head:"",
+            height:"",
+            weight:"",
+            time:""
+
         };
    
     },
@@ -65,7 +73,39 @@ export default {
     },
     onClickRight() {
      
+    },
+    news(){
+       
+
+
     }
+    
+    },
+    mounted(){
+        
+       if(localStorage.getItem("Token")){
+        var token = localStorage.getItem("Token");
+        axios({
+            method:"get",
+            url:"http://10.8.157.61/showBaby",
+            params:{userId:token}
+        }).then((data)=>{
+            
+            var myDate = new Date()
+            this.time = myDate.toLocaleString()
+    
+            this.Desc=data.data.babyDesc
+            this.head=data.data.head
+            this.height=data.data.heright
+            this.weight=data.data.weight
+           
+        })
+       }else{
+           Toast("请登录查看")
+           this.$router.push("/login")
+       }
+       
+
     }
    
 }
@@ -100,4 +140,5 @@ export default {
         justify-content:space-between;
         margin:2% 0
     }
+
 </style>
