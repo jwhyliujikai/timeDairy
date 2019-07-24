@@ -44,6 +44,7 @@
 <script>
 import axios from 'axios'
 import Zhan from "../components/zhanwei"
+var token=localStorage.getItem("Token") 
 export default {
 	components:{
 		"v-cart":Zhan
@@ -55,7 +56,6 @@ export default {
                 checked:false,
                 step:1,
                 sum : 0,
-                pri:[],
                	bu:"",
                	ul:'',
                	index1:[]
@@ -126,21 +126,13 @@ export default {
             },
             //点击加号
             jia(index,id,num){
-     
             	axios({
             		url:"http://10.8.157.61/addShop",
             		params:{goodsId:id,goodsNum:1,userId:24}
             	}).then((data)=>{
-//          		console.log(data)
-//          		for(let val of this.list){
-//          		console.log(val.check)
-//                   if(val.check){
 						if(this.list[index].check){
 							this.sum += this.list[index].goodsPrice * 1*100
 						}
-                     	  
-//                   }
-//                  }
             	})
             	
            },
@@ -150,13 +142,7 @@ export default {
             		url:"http://10.8.157.61/addShop",
             		params:{goodsId:id,goodsNum:-1,userId:24}
             	}).then((data)=>{
-//          		console.log(data)
-//          		for(let val of this.list){
-//          		console.log(val.check)
-//                   if(val.check){
-//                   	  this.sum -= val.goodsPrice * 1*100
-//                   }
-//                  }
+			//判断当前复选框有没有选中
 				if(this.list[index].check){
 							this.sum -= this.list[index].goodsPrice * 1*100
 						}
@@ -180,14 +166,12 @@ export default {
         mounted() {
             axios({
                 url:'http://10.8.157.61/shoptro',
-                params:{userId:24}
+                params:{userId:token}
             }).then((data)=>{
-            	console.log(data)
                 this.list =data.data
-                console.log(this.list.length)
-                //if(this.list.length==0){
+                if(this.list.length!=0){
                 	 this.ul="cart"
-                //}
+                }
                
             }) 
         },

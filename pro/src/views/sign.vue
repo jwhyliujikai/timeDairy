@@ -7,18 +7,15 @@
 		left-arrow 
 		@click-left="onClickLeft" />
 		<div style="margin-top:50px;">
-			<van-button icon="star-o" type="primary" @click="tap()">签到</van-button>
-		
+			<van-button icon="star-o" style="color:orange;" @click="tap()">签到</van-button>
 		</div>
-		
-		
 	</div>
-
 </template>
 
 <script>
 import axios from 'axios'
 import { Dialog } from 'vant';
+var token=localStorage.getItem("Token") 
 export default{
 	data(){
 		return{
@@ -30,11 +27,13 @@ export default{
        this.$router.go(-1)
     },
     tap(){
-    	this.$toast('签到成功');
-    	var _this=this
+    	if(token==null){
+    	this.$toast('请先登录哦')
+    	}else{
+    		var _this=this
     	axios({
     		url:"http://10.8.157.61/sign",
-    		params:{userId:22}
+    		params:{userId:token}
     	}).then((data)=>{
     		console.log(data.data)
     		var code=data.data
@@ -58,7 +57,10 @@ export default{
     		if(code==1){
     			_this.$toast('签到成功');
     		}
+    		
     	})
+    	}
+    	
     	
     }
   },

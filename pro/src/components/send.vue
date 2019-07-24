@@ -30,9 +30,9 @@
                 />
             <!--</div>-->
             
-                 <van-cell title="商品总价" value="内容" style="margin-top:2vh;background:none;" />
-                 <van-cell title="配送费" value="内容" style="background:none;"/>
-                 <van-cell title="运费险" value="内容" style="background:none;"/>
+                 <van-cell title="商品总价" value="77" style="margin-top:2vh;background:none;" />
+                 <van-cell title="配送费" value="10元" style="background:none;"/>
+                 <van-cell title="运费险" value="无" style="background:none;"/>
                 <div style="margin-left:60vw;font-size:4vw">
                     <span>总计&nbsp;&nbsp;&nbsp;&nbsp;</span><span>￥ 777</span>
                 </div>       
@@ -49,6 +49,7 @@
 <script>
 import axios from 'axios'
 import ZhanC from "../components/zhanweiC"
+var token=localStorage.getItem("Token") 
 export default {
 	components:{
 		"v-send":ZhanC
@@ -76,7 +77,8 @@ mounted(){
 		      		//console.log(val)
 		      		if(val.status==1){
 		      		this.list.push(val)
-		      		}else{
+		      		}
+		      		if(val.status!=1){
 		      			this.sendC="send"
 		      		}
 		      	})

@@ -16,6 +16,7 @@
 
 <script>
 import axios from 'axios'
+var token=localStorage.getItem("Token") 
 export default{
 	data(){
 		return {
@@ -28,13 +29,18 @@ export default{
    }
 	},
 	mounted(){
-		axios({
+		if(token==null){
+    	this.points=0
+    	}else{
+    		axios({
     		url:"http://10.8.157.61/integral",
-    		params:{userId:22}
+    		params:{userId:token}
     	}).then((data)=>{
     		console.log(data)
     		this.points=data.data
     	})
+    	}
+		
 	}
 	
 }

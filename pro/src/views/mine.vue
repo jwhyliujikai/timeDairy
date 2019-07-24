@@ -36,22 +36,21 @@
 </van-swipe>
 </template>
 <script>
-	import axios from 'axios'
+import axios from 'axios'
+var token=localStorage.getItem("Token")
 export default {
 	data() {
     return {
-    	name:"",
+    	name:"未登录",
     	nameimg:"",
-      fileList: [
-        { url: 'https://img.yzcdn.cn/vant/cat.jpeg' }
-      ]
+      
     }
  },
  mounted(){
  	axios({
  		url:"http://10.8.157.61/mymain",
  		//params:{userId:this.$route.state.token}
- 		params:{userId:24}
+ 		params:{userId:token}
  	}).then((data)=>{
  		console.log(data.data)
  		this.name=data.data[0].username
