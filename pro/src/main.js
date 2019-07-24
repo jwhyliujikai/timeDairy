@@ -16,12 +16,6 @@ import 'swiper/dist/css/swiper.css'
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
-
-
-
-//import 'lib-flexible/flexible';
-
-
 import store from './store';
 Vue.use(animated)
 Vue.use(VueAwesomeSwiper, /* { default global options } */ )

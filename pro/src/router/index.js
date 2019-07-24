@@ -50,8 +50,8 @@ import Cart from '@/views/cart'
 import Carts from '@/data/Carts'
 import Myselect from '@/views/myselect'
 import Setup from '@/views/setup'
-
-
+import Points from '@/views/points'
+import Sign from '@/views/sign'
 Vue.use(Router)
     // Vue.use(IScrollView, IScroll)
 export default new Router({
@@ -228,6 +228,12 @@ export default new Router({
         }, {
             path: '/setup',
             component: Setup
+        },{
+            path: '/points',
+            component: Points
+        },{
+            path: '/sign',
+            component: Sign
         }
     ]
 })

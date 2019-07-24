@@ -42,8 +42,10 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
+import {Toast} from "vant"
 import Zhan from "../components/zhanwei"
+var token=localStorage.getItem("Token") 
 export default {
 	components:{
 		"v-cart":Zhan
@@ -55,11 +57,9 @@ export default {
                 checked:false,
                 step:1,
                 sum : 0,
-                pri:[],
                	bu:"",
                	ul:'',
-               	index1:[]
-               	
+               	index1:[]	
             }
         },
         methods: {
@@ -126,21 +126,13 @@ export default {
             },
             //点击加号
             jia(index,id,num){
-     
             	axios({
             		url:"http://10.8.157.61/addShop",
-            		params:{goodsId:id,goodsNum:1,userId:24}
+            		params:{goodsId:id,goodsNum:1,userId:token}
             	}).then((data)=>{
-//          		console.log(data)
-//          		for(let val of this.list){
-//          		console.log(val.check)
-//                   if(val.check){
 						if(this.list[index].check){
 							this.sum += this.list[index].goodsPrice * 1*100
 						}
-                     	  
-//                   }
-//                  }
             	})
             	
            },
@@ -148,15 +140,9 @@ export default {
             jian(index,id,num){
             	axios({
             		url:"http://10.8.157.61/addShop",
-            		params:{goodsId:id,goodsNum:-1,userId:24}
+            		params:{goodsId:id,goodsNum:-1,userId:token}
             	}).then((data)=>{
-//          		console.log(data)
-//          		for(let val of this.list){
-//          		console.log(val.check)
-//                   if(val.check){
-//                   	  this.sum -= val.goodsPrice * 1*100
-//                   }
-//                  }
+			//判断当前复选框有没有选中
 				if(this.list[index].check){
 							this.sum -= this.list[index].goodsPrice * 1*100
 						}
@@ -168,28 +154,34 @@ export default {
            	var num=-this.list[index].goodsNum-1
            	axios({
             		url:"http://10.8.157.61/addShop",
-            		params:{goodsId:id,goodsNum:num,userId:24}
+            		params:{goodsId:id,goodsNum:num,userId:token}
             	}).then((data)=>{
             		console.log(data)
-            		
-            		location.reload()
+            		//location.reload()
+            		axios({
+            			url:"http://10.8.157.61/shoptro",
+            			params:{goodsId:id,goodsNum:num,userId:token}
+            		}).then((data)=>{
+            			this.list=data.data
+            		})
             	})
            }
           
         },
         mounted() {
+        	if(!token){
+ 		//Toast("请先登录")
+ 	}else{
             axios({
                 url:'http://10.8.157.61/shoptro',
-                params:{userId:24}
+                params:{userId:token}
             }).then((data)=>{
-            	console.log(data)
                 this.list =data.data
-                console.log(this.list.length)
-                //if(this.list.length==0){
+                if(this.list.length!=0){
                 	 this.ul="cart"
-                //}
+                }
                
-            }) 
+            }) }
         },
 }   
 </script>
@@ -203,18 +195,5 @@ export default {
     bottom:0;
 }
 
-/*input[type='checkbox']{
-    width: 16px;
-    height: 16px;
-    background-color: #fff;
-    -webkit-appearance:none;
-    border: 1px solid #c9c9c9;
-    border-radius: 2px;
-    outline: none;
-}*/
- 
-/*.checkbox input[type=checkbox]:checked{
-   background: url("https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=964899143,2534335338&fm=15&gp=0.jpg") 0 0/16px 16px no-repeat;
 
-}*/
 </style>

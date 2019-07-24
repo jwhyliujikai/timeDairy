@@ -11,33 +11,37 @@
             /> 
     	</div>
          
-          <div style="height:250px;">
-          	 <van-swipe :autoplay="3000" indicator-color="white" :height="200">
-                    <van-swipe-item class="logo" v-for="item in list"><img style="height:30vh;width:100%" :src="item"></van-swipe-item>
+          <div style="height:30vh;">
+          	 <van-swipe :autoplay="3000" indicator-color="white" style="height:30vh;">
+                    <van-swipe-item class="logo" v-for="(item,i) in list" :key="i"><img style="height:30vh;width:100%" :src="item"></van-swipe-item>
                 </van-swipe>
           </div>
-               
                 	<van-grid :column-num="3" style="margin-top:3vh;" :gutter="10">
 				  <van-grid-item
 				    icon="vip-card-o"
+				    to="/points"
 				    text="我的积分"
+				    id="pon"
+				    style="color:orange;"
 				  />
 				  <van-grid-item
 				    icon="label-o"
+				    to="/sign"
 				    text="签到"
+				    style="color:orange;"
 				  />
 				  <van-grid-item
 				    icon="gift-o"
 				    text="我的奖品"
+				    style="color:orange;"
 				  />
 				</van-grid>
-               
                 <van-row style="margin-top:20px">
                     <van-col span="10" offset="8">时光会员  专享好货</van-col>
                 </van-row>
                <van-grid :border="false" :column-num="2" >
                     <van-grid-item v-for="item in list1" >
-                        <img :src="item.goodsImg" style="height:200px;width:160px"/>
+                        <img :src="item.goodsImg" style="height:25vh;width:40vw"/>
                         <p>{{item.goodsName}}</p>
                     </van-grid-item>
                 </van-grid>
@@ -58,28 +62,24 @@ data(){
   methods: {
     onClickLeft() {
        this.$router.go(-1)
+    },
+    tap(){
+    	var pon =document.querySelectorAll("van-icon-vip-card-o")[0]
+    	pon.style.color="orange"
     }
   },
   mounted() {
             axios({
             	method:"get",
-            	//http://10.8.157.61/v2/api-docs 
                 url:'http://10.8.157.61/bannerUrl',
-                // data:{token:token}
             }).then((data)=>{
-                //console.log(data.data.list.length)
                 this.list =data.data 
-                //console.log(this.list)
             })
             axios({
             	method:"get",
-            	//http://10.8.157.61/v2/api-docs 
                 url:'http://10.8.157.61/goodsList',
-                // data:{token:token}
             }).then((data)=>{
-                //console.log(data.data.list.length)
                 this.list1 =data.data 
-                console.log(this.list1)
             })
            
         },
