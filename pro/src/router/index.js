@@ -20,15 +20,6 @@ import Cookbook from '@/views/Cookbook'
 import All from '@/views/All'
 
 
-import Mine from "@/views/mine"
-import Center from "@/views/center"
-import Order from "@/views/order"
-import Coupon from "@/views/coupon"
-import Send from '@/components/send'
-import Cart from '@/views/cart'
-import Carts from '@/data/Carts'
-import Myselect from '@/views/myselect'
-import Setup from '@/views/setup'
 
 Vue.use(Router)
 // Vue.use(IScrollView, IScroll)
@@ -83,9 +74,7 @@ export default new Router({
             component:Mainfood,
           },
           
-        ],
-
-          
+        ], 
         },
         
         {
