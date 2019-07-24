@@ -7,8 +7,8 @@
         <ul>
           <router-link tag="li" :to='{name:"Goodsdetailindex",query:{id:item.goodsId}}' v-for='(item,index) in list' >
             <img :src="item.goodsImg" alt="">
+            <p>全球500强的纸尿裤</p>
             <p>{{item.goodsName}}</p>
-            <p>{{item.goodsDesc}}</p>
             <p>会员价￥{{item.goodsPrice}}</p>
             <p>宝马亲测:真的好用，不但薄，而且吸收量很大，还没哟红屁股</p>
             <span>{{index+1}}</span>
@@ -35,6 +35,7 @@ export default {
     this.$emit("titleText",this.title);
      axios('http://10.8.157.61/goodsList').then((data)=>{
             this.list=data.data;
+            // console.log(this.list);
         })
   }
 }

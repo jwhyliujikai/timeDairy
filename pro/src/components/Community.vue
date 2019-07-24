@@ -70,7 +70,7 @@ export default {
         //关注用户
         gz(e,a){
             var el=e.target;
-            if(!localStorage.getItem('token')){
+            if(!localStorage.getItem('Token')){
                 Toast('请先登录');
             }else{
                 if($(el).html()=='取消关注'){

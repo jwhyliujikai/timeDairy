@@ -80,7 +80,7 @@ export default {
   },
   methods:{
     ljgm(){
-      if(!localStorage.getItem('token')){
+      if(!localStorage.getItem('Token')){
          Toast('请先登录');
       }else{
          this.$router.push("/addtocar?id="+this.$route.query.id);
@@ -104,6 +104,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+*{
+  margin: 0;
+  padding:0;
+}
 #ljgm{
   width: 100%;
   height: auto;

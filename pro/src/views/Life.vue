@@ -2,7 +2,7 @@
     <div id="Life">
         <div id="header">
             <ul>
-            <router-link to='/life' tag="li" style="background:rgb(248,248,248)">关注</router-link>
+            <li @click="toattention" style="background:rgb(248,248,248)">关注</li>
              <router-link to='/community' tag="li">社区</router-link>
              <router-link to="/superpro" tag="li">优品</router-link>
             </ul>
@@ -18,7 +18,16 @@
 <script>
 
 export default {
-    name:'Life'
+    name:'Life',
+    methods:{
+        toattention(){
+            if(localStorage.getItem("Token")){
+                this.$router.push('/attentioninfos')
+            }else{
+                 this.$router.push('/attention')
+            }
+        }
+    }
 }
 </script>
 <style scoped>
@@ -57,7 +66,7 @@ export default {
         margin: 0 5px;
     }
     #body{
-        height: 500px;
+        height: auto;
         margin-bottom: 46px;
     }
 </style>

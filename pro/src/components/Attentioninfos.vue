@@ -65,7 +65,7 @@ export default {
         this.isLoading = false;
          axios({
             url:"http://10.8.157.61/attList",
-            params:{userId:localStorage.getItem('token')}
+            params:{userId:localStorage.getItem('Token')}
           }).then((data)=>{
             this.list=data.data;
       
@@ -76,7 +76,7 @@ export default {
   mounted(){
     axios({
       url:"http://10.8.157.61/attList",
-      params:{userId:localStorage.getItem('token')}
+      params:{userId:localStorage.getItem('Token')}
     }).then((data)=>{
       this.list=data.data;
   

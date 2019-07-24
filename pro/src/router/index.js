@@ -50,7 +50,7 @@ import Cart from '@/views/cart'
 import Carts from '@/data/Carts'
 import Myselect from '@/views/myselect'
 import Setup from '@/views/setup'
-
+import Repinfo from '@/views/Repinfo'
 
 Vue.use(Router)
     // Vue.use(IScrollView, IScroll)
@@ -76,12 +76,14 @@ export default new Router({
                     redirect: '/attention',
                     component: Life,
                     children: [{
-                        path: '/attention',
-                        component: Attention
-                    }, {
-                        path: '/attentioninfos',
-                        component: Attentioninfos
-                    }]
+                            path: '/attention',
+                            component: Attention
+                        },
+                        {
+                            path: '/attentioninfos',
+                            component: Attentioninfos
+                        }
+                    ]
 
                 }
             ]
@@ -91,6 +93,19 @@ export default new Router({
             redirect: '/shipu',
             component: Cookbook,
             children: [{
+                    path: '/wine',
+                    name: "wine",
+                    component: Wine,
+                },
+                {
+                    path: '/all',
+                    component: All
+                },
+                {
+                    path: '/question',
+                    component: Question
+                },
+                {
                     path: '/wine',
                     name: "wine",
                     component: Wine,
@@ -113,10 +128,7 @@ export default new Router({
                         },
 
                     ],
-
-
                 },
-
                 {
                     path: '/yingyang',
                     component: Yingyang
@@ -125,86 +137,71 @@ export default new Router({
                     path: '/collect',
                     component: Collect
                 }
-
             ]
-        }, {
-            path: '/cookbook',
-            redirect: '/shipu',
-            component: Cookbook,
+        },
+        {
+            path: '/superpro',
+            component: Superpro,
+            redirect: '/superproindex',
             children: [{
-                    path: '/wine',
-                    name: "wine",
-                    component: Wine,
+                    path: '/superproindex',
+                    component: Superproindex
                 },
                 {
-                    path: '/all',
-                    component: All
+                    path: '/qingjie',
+                    name: 'Qingjie',
+                    component: Qingjie
                 },
-                {
-                    path: '/question',
-                    component: Question
-                }, {
-                    path: '/superpro',
-                    component: Superpro,
-                    redirect: '/superproindex',
-                    children: [{
-                            path: '/superproindex',
-                            component: Superproindex
-                        },
-                        {
-                            path: '/qingjie',
-                            name: 'Qingjie',
-                            component: Qingjie
-                        },
 
-                        {
-                            path: '/more',
-                            component: More
-                        },
-                        {
-                            path: '/bbbbei',
-                            component: Bbbbei
-                        },
-                        {
-                            path: '/community',
-                            component: Community
-                        }
-
-                    ]
+                {
+                    path: '/more',
+                    component: More
                 },
                 {
-                    path: '/goodsdetail',
-                    redirect: '/goodsdetailindex',
-                    component: Goodsdetail,
-                    children: [{
-                        path: '/goodsdetailindex',
-                        name: 'Goodsdetailindex',
-                        component: Goodsdetailindex
-                    }, {
-                        path: '/goodsdetailljgm',
-                        name: 'Goodsdetailljgm',
-                        component: Goodsdetailljgm
-                    }]
+                    path: '/bbbbei',
+                    component: Bbbbei
                 },
                 {
-                    path: '/addtocar',
-                    name: 'Addtocar',
-                    component: Addtocar
-                },
-                {
-                    path: '/evaluate',
-                    component: Evaluate
-                },
-                {
-                    path: '/swiper',
-                    component: Swiper
-                },
-                {
-                    path: '/setting',
-                    component: Setting
-                },
+                    path: '/community',
+                    component: Community
+                }
             ]
-        }, {
+        },
+        {
+            path: '/goodsdetail',
+            redirect: '/goodsdetailindex',
+            component: Goodsdetail,
+            children: [{
+                    path: '/goodsdetailindex',
+                    name: 'Goodsdetailindex',
+                    component: Goodsdetailindex
+                },
+                {
+                    path: '/goodsdetailljgm',
+                    name: 'Goodsdetailljgm',
+                    component: Goodsdetailljgm
+                }
+            ]
+        },
+        {
+            path: '/addtocar',
+            name: 'Addtocar',
+            component: Addtocar
+        },
+        {
+            path: '/evaluate',
+            component: Evaluate
+        },
+        {
+            path: '/swiper',
+            component: Swiper
+        },
+        {
+            path: '/setting',
+            component: Setting
+        },
+
+        {
             path: '/all',
             component: All
         }, {
@@ -231,6 +228,10 @@ export default new Router({
         }, {
             path: '/setup',
             component: Setup
+        },
+        {
+            path: '/repinfo',
+            component: Repinfo
         }
     ]
 })

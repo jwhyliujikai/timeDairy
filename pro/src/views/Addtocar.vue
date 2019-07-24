@@ -89,14 +89,14 @@ export default {
              this.$router.go(-1) ;         
         },
         addtocar(){
-          if(!localStorage.getItem('token')){
+          if(!localStorage.getItem('Token')){
              Toast('请先登录');
 
           }else{
                 axios({
                 url:'http://10.8.157.61/addShop',
                 params:{
-                  userId:localStorage.getItem('token'),
+                  userId:localStorage.getItem('Token'),
                   goodsId:this.$route.query.id,
                   goodsNum:this.value
                 }

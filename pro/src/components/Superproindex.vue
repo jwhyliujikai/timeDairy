@@ -201,7 +201,7 @@ export default {
 #list2 ul{
     width: 100%;
     height: auto;
-
+    margin-bottom:20px;
     display: flex;
     align-items: center;
     justify-content: center;
