@@ -50,8 +50,9 @@ import Cart from '@/views/cart'
 import Carts from '@/data/Carts'
 import Myselect from '@/views/myselect'
 import Setup from '@/views/setup'
-import Repinfo from '@/views/Repinfo'
 
+import Points from '@/views/points'
+import Sign from '@/views/sign'
 Vue.use(Router)
     // Vue.use(IScrollView, IScroll)
 export default new Router({
@@ -156,7 +157,9 @@ export default new Router({
                 {
                     path: '/more',
                     component: More
+
                 },
+
                 {
                     path: '/bbbbei',
                     component: Bbbbei
@@ -230,8 +233,12 @@ export default new Router({
             component: Setup
         },
         {
-            path: '/repinfo',
-            component: Repinfo
+            path: '/points',
+            component: Points
+        }, {
+            path: '/sign',
+            component: Sign
+
         }
     ]
 })

@@ -7,11 +7,10 @@
     <div style="display:flex;justify-content: center;align-items:center;flex-direction: column;">
     	<span>我的</span>
     	<div class="cir" style="display:block;height:100px;border-radius:50px;width:100px;background:#eee;margin:15px 0;text-align: center;line-height:100px;overflow: hidden;">
-    		<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2674784041,3062714288&fm=26&gp=0.jpg"/>
+    		<img src="https://img.yzcdn.cn/vant/cat.jpeg" style="height:100px;width: 100px;overflow: hidden;"/>
     	</div>
     	<span style="font-size:16px;display: block;">{{name}}</span>
     </div>
-    
 </van-row>
 <van-row >
   <van-col span="10" offset="2" style="height:8vh;background:#ccc;margin-top:5px;text-align: center;line-height:4vh;" justify="20">
@@ -24,56 +23,42 @@
    </van-col>
 </van-row>
 <van-cell-group style="margin-top:24px;margin-left:20px">
-  <van-cell title="会员中心" icon="circle" @click="tap()"/>
-  <van-cell title="我的收藏" icon="circle" @click="tap1()"/>
-  <van-cell title="购物车" icon="circle" @click="tap2()"/>
-  <van-cell title="我的订单" icon="circle" @click="tap3()"/>
-  <van-cell title="优惠券" icon="circle" @click="tap4()"/>
+  <van-cell title="会员中心" icon="circle" to="/center"/>
+  <van-cell title="我的收藏" icon="circle" to="/myselect"/>
+  <van-cell title="购物车" icon="circle" to="/cart"/>
+  <van-cell title="我的订单" icon="circle" to="/order"/>
+  <van-cell title="优惠券" icon="circle" to="/coupon"/>
 </van-cell-group>
 </div>
-
 
 </van-swipe>
 </template>
 <script>
-	import axios from 'axios'
+import axios from 'axios';
+import {Toast} from "vant"
+var token=localStorage.getItem("Token")
 export default {
 	data() {
     return {
-    	name:"",
+    	name:"未登录",
     	nameimg:"",
-      fileList: [
-        { url: 'https://img.yzcdn.cn/vant/cat.jpeg' }
-      ]
     }
  },
  mounted(){
- 	axios({
+ 	if(!token){
+// 		Toast("请先登录")
+ 	}else{
+ 		axios({
  		url:"http://10.8.157.61/mymain",
- 		//params:{userId:this.$route.state.token}
- 		params:{userId:24}
+ 		params:{userId:token}
  	}).then((data)=>{
- 		console.log(data.data)
  		this.name=data.data[0].username
  		this.nameimg=data.data[0].headImg
  	})
+ 	}
+ 	
  },
-   methods: {
-       tap(){
-           this.$router.push("/center")
-       },
-        tap1(){
-           this.$router.push("/myselect")
-       },
-        tap2(){
-           this.$router.push("/cart")
-       },
-        tap3(){
-           this.$router.push("/order")
-       },
-        tap4(){
-           this.$router.push("/coupon")
-       },
+   methods:{
         setup(){
           this.$router.push("/setup")
        }
