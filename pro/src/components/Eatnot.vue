@@ -7,11 +7,18 @@
             shape="round"
             @input="change"
             >
-            <!-- <div slot="action" @click="onSearch">搜索</div> -->
+            <div slot="action" @click="onSearch">搜索</div>
         </van-search> 
+        
+            
+
+            <!-- <div slot="action" @click="onSearch">搜索</div> -->
+        
+
          <ul>
              <router-link tag='li' class="search" v-for='item in data' @click="top($event)" :to="{name:'wine',query:{a:item.foodsId}}">{{item.foodsName}}</router-link>
              <!-- <li class="search" v-for='item in data' @click="top($event,item.foodsId)">{{item.foodsName}}</li> -->
+
          </ul>
         <div id="foodslist">
         <router-view></router-view>
@@ -19,7 +26,7 @@
     </div>
 </template>
 <script>
-var oLi = document.querySelectorAll('.search')[0];
+
 //console.log(oLi)
 import axios from 'axios';
 export default {
@@ -27,11 +34,9 @@ export default {
     data(){
         return{
             value:'',
-            title:'能不能吃',
-            
+            title:'能不能吃',            
             data:[],
             arr:[],
-
         }
     },
     mounted(){
@@ -39,17 +44,33 @@ export default {
          //console.log(oLi.innerHTML)
     },
     methods: {
-        change(){
-            
+        change(){            
+            axios({
+            url:'http://10.8.157.61/queryfoods',
+            params:{foodsName:this.value}
+        }).then((data)=>{
+
+            this.data=data.data;
+        });
+
+        },
+        onSearch(){ 
             axios({
             url:'http://10.8.157.61/queryfoods',
             params:{foodsName:this.value}
         }).then((data)=>{
           this.data=data.data;
+         // console.log(this.data)
+           this.data.map((item)=>{
+              // console.log(item)
+               this.$router.push({name:'wine',query:{a:item.foodsId}})
+           })
+           
+        })
+          this.data=data.data;
           console.log(this.data)
            
-        });
-
+        }
         },
         top(e){
             var el=e.target;
@@ -57,10 +78,10 @@ export default {
             this.value= $(el).html();
             // this.$route.push('/')
         }
-    },
+    }
     
 
-}
+
 </script>
 <style scoped=''>
     #foodlist{

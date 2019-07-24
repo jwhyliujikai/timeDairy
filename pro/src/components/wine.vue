@@ -31,19 +31,15 @@ export default {
             url:'http://10.8.157.61/foodsinfo',
             params:{foodsId:this.$route.query.a}
         }).then((data)=>{
-        //    this.data=data;
-          // console.log(data.data);
-           this.data=data.data;
-          // console.log(this.data)
+        
+           this.data=data.data;         
            this.list=this.data.foodsInfoIssue;
-        //    console.log(this.list);
-        })
-
-
-
-        this.$emit('toparent',this.title)
+        }),
+         this.$emit('toparent',this.title)
+        }
+       
         //  this.$emit('toparent',this.title)
-    },
+ 
     
 }
 </script>
