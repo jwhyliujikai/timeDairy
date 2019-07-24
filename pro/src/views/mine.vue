@@ -7,11 +7,10 @@
     <div style="display:flex;justify-content: center;align-items:center;flex-direction: column;">
     	<span>我的</span>
     	<div class="cir" style="display:block;height:100px;border-radius:50px;width:100px;background:#eee;margin:15px 0;text-align: center;line-height:100px;overflow: hidden;">
-    		<img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2674784041,3062714288&fm=26&gp=0.jpg"/>
+    		<img src="https://img.yzcdn.cn/vant/cat.jpeg" style="height:100px;width: 100px;overflow: hidden;"/>
     	</div>
     	<span style="font-size:16px;display: block;">{{name}}</span>
     </div>
-    
 </van-row>
 <van-row >
   <van-col span="10" offset="2" style="height:8vh;background:#ccc;margin-top:5px;text-align: center;line-height:4vh;" justify="20">

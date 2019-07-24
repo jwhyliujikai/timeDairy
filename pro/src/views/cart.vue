@@ -128,7 +128,7 @@ export default {
             jia(index,id,num){
             	axios({
             		url:"http://10.8.157.61/addShop",
-            		params:{goodsId:id,goodsNum:1,userId:24}
+            		params:{goodsId:id,goodsNum:1,userId:token}
             	}).then((data)=>{
 						if(this.list[index].check){
 							this.sum += this.list[index].goodsPrice * 1*100
@@ -140,7 +140,7 @@ export default {
             jian(index,id,num){
             	axios({
             		url:"http://10.8.157.61/addShop",
-            		params:{goodsId:id,goodsNum:-1,userId:24}
+            		params:{goodsId:id,goodsNum:-1,userId:token}
             	}).then((data)=>{
 			//判断当前复选框有没有选中
 				if(this.list[index].check){
@@ -154,11 +154,16 @@ export default {
            	var num=-this.list[index].goodsNum-1
            	axios({
             		url:"http://10.8.157.61/addShop",
-            		params:{goodsId:id,goodsNum:num,userId:24}
+            		params:{goodsId:id,goodsNum:num,userId:token}
             	}).then((data)=>{
             		console.log(data)
-            		
-            		location.reload()
+            		//location.reload()
+            		axios({
+            			url:"http://10.8.157.61/shoptro",
+            			params:{goodsId:id,goodsNum:num,userId:token}
+            		}).then((data)=>{
+            			this.list=data.data
+            		})
             	})
            }
           
@@ -166,7 +171,7 @@ export default {
         mounted() {
             axios({
                 url:'http://10.8.157.61/shoptro',
-                params:{userId:token}
+                params:{userId:24}
             }).then((data)=>{
                 this.list =data.data
                 if(this.list.length!=0){
