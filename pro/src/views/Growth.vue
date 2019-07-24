@@ -118,7 +118,7 @@ export default {
         height:100%;
     }
     header{
-        height:5%;
+        height:46px;
     }
     #list{
         flex:1;
