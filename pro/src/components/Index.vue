@@ -66,7 +66,7 @@ export default {
         axios({
             url:'http://10.8.157.61/essay'
         }).then((data)=>{    
-            console.log(data) 
+           // console.log(data) 
            this.list1 = data.data;
           // console.log(this.list1)
         })

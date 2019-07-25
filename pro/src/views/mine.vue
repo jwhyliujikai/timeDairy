@@ -53,11 +53,11 @@ export default {
         url:"http://10.8.157.61/mymain",
         params:{userId:token}
       }).then((data)=>{
-        console.log(data.data);
+       // console.log(data.data);
         this.name=data.data[0].username
         if(!data.data[0].headImg){
             this.nameimg=this.$store.state.commheadImg;
-            console.log(this.nameimg);
+            //console.log(this.nameimg);
         }else{
             this.nameimg=data.data[0].headImg
         }
