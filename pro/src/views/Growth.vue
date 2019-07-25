@@ -13,43 +13,120 @@
 
        <div id="content">
             <van-tabs color="#ccc" line-width=30px line-height="1px">
-                <van-tab title="记录列表"></van-tab>
-                <van-tab title="身高曲线"></van-tab>
-                <van-tab title="体重曲线"></van-tab>
-                <van-tab title="头围曲线"></van-tab>
+                <van-tab title="记录列表">
+                    <div id="list">
+                            <ul id="uls">
+                                <li>
+                                <ul>
+                                    <li>
+                                        <span>{{time}}</span>
+                                        
+                                    </li>
+                                        
+                                    <van-icon class="jia" name="plus" @click="news"/>
+                                </ul>
+                                <ul>
+                                    <li>{{Desc}}</li>
+                                </ul>
+                                <ul>
+                                    <li>身高:{{height}}cm</li>
+                                    <li>头围:{{head}}cm</li>
+                                </ul>
+                                <ul>
+                                    <li>体重:{{weight}}kg</li>
+                                </ul>
+                                </li>
+                            </ul>
+                    </div>
+                </van-tab>
+                <van-tab title="身高曲线">
+                       <div id="list">
+                            <ul id="uls">
+                                <li>
+                                <ul>
+                                    <li>
+                                        <span>{{time}}</span>
+                                        
+                                    </li>
+                                        
+                                    <van-icon class="jia" name="plus" @click="news"/>
+                                </ul>
+                                <ul>
+                                    <li>{{Desc}}</li>
+                                </ul>
+                                <ul>
+                                    <li>身高:{{height}}cm</li>
+                                    <li>头围:{{head}}cm</li>
+                                </ul>
+                                <ul>
+                                    <li>体重:{{weight}}kg</li>
+                                </ul>
+                                </li>
+                            </ul>
+                    </div>
+                </van-tab>
+                <van-tab title="体重曲线">
+                       <div id="list">
+                            <ul id="uls">
+                                <li>
+                                <ul>
+                                    <li>
+                                        <span>{{time}}</span>
+                                        
+                                    </li>
+                                        
+                                    <van-icon class="jia" name="plus" @click="news"/>
+                                </ul>
+                                <ul>
+                                    <li>{{Desc}}</li>
+                                </ul>
+                                <ul>
+                                    <li>身高:{{height}}cm</li>
+                                    <li>头围:{{head}}cm</li>
+                                </ul>
+                                <ul>
+                                    <li>体重:{{weight}}kg</li>
+                                </ul>
+                                </li>
+                            </ul>
+                    </div>
+                </van-tab>
+                <van-tab title="头围曲线">
+                       <div id="list">
+                            <ul id="uls">
+                                <li>
+                                <ul>
+                                    <li>
+                                        <span>{{time}}</span>
+                                        
+                                    </li>
+                                        
+                                    <van-icon class="jia" name="plus" @click="news"/>
+                                </ul>
+                                <ul>
+                                    <li>{{Desc}}</li>
+                                </ul>
+                                <ul>
+                                    <li>身高:{{height}}cm</li>
+                                    <li>头围:{{head}}cm</li>
+                                </ul>
+                                <ul>
+                                    <li>体重:{{weight}}kg</li>
+                                </ul>
+                                </li>
+                            </ul>
+                    </div>
+                </van-tab>
             </van-tabs>
             
        </div>
 
-       <div id="list">
-        <ul id="uls">
-            <li>
-               <ul>
-                   <li>
-                       <span>{{time}}</span>
-                       
-                   </li>
-                      
-                   <van-icon class="jia" name="plus" @click="news"/>
-               </ul>
-               <ul>
-                   <li>{{Desc}}</li>
-               </ul>
-               <ul>
-                   <li>身高:{{height}}cm</li>
-                   <li>头围:{{head}}cm</li>
-               </ul>
-               <ul>
-                   <li>体重:{{weight}}kg</li>
-               </ul>
-            </li>
-        </ul>
-       </div>
+       
     </div>
 
 </template>
 
-<script>
+<script >
 import axios from 'axios'
 import { Toast, CouponList } from 'vant';
 export default {
@@ -118,29 +195,23 @@ export default {
         height:100%;
     }
     header{
+        width: 100%;
         height:46px;
         width:100%
     }
-    #list{
-        width:100%;
-        height:100%;
-        margin-top:3%;
-        display:flex;
-        justify-content:center;
+    #content{
+        display: flex;
+        flex: 1;
+        flex-direction: column
     }
-    #uls{
-        
-        width:92%;
-        height:20%;
-        background:#e3e3e3;
-        border-radius:10px;
-        padding:3% 3%;
+   #list{
+       width: 85%;
+       background: pink;
+       height: 100px;
+       /* margin:10px 0;  */
+       margin:10px auto;
+       border-radius: 20px;
+       padding: 10px;
        
-    }
-    #uls li ul{
-        display:flex;
-        justify-content:space-between;
-        margin:2% 0
-    }
-
+   }
 </style>
