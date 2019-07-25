@@ -24,7 +24,9 @@
 		       this.$router.go(-1)
 		   },
 		   tap(){
-		   	console.log("aaa")
+			   localStorage.removeItem('Token');
+			   this.$router.push('/index')
+		   	// console.log("aaa")
 		   }
 		}
 	}

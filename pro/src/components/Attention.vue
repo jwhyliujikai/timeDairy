@@ -8,7 +8,9 @@
                  <li v-for="(item,index) in userlist" > 
                     <p @click.stop="attention($event,item.id)">
                         <van-icon name="checked" color="orange" id='icon' size="14" v-show='false'  />
-                        <img  :src='item.headImg'/>
+                        <img :src="commheadImg" alt="" v-if='item.headImg==null'>
+                        <img  :src='item.headImg' v-else />
+
                     </p>
                     <p>{{item.userMonicker}}</p>
                    </li>
@@ -31,6 +33,7 @@ export default {
        isLoading: false,
        userlist:[],
        attionslist:[],
+       commheadImg:this.$store.state.commheadImg
     }
   },
   methods: {
@@ -57,6 +60,7 @@ export default {
     yjgz(){
       if(!localStorage.getItem('Token')){
           Toast('请先登录');
+          this.$router.push("/login")
       }else{
             if(this.attionslist.length==0){
               this.$router.push('/community');

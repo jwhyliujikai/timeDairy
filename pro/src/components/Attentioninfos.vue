@@ -2,7 +2,7 @@
   <div id="inner">
     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
 
-       <div v-if='!list.length==0'>
+       <div v-if='!list.length==0' id='last'>
       <div id="bkelist" v-for="item in list" >
          <div id="title">
            <div id="img">
@@ -90,6 +90,9 @@ export default {
 *{margin: 0;
 padding:0;
 }
+#last{
+  width: 100%;
+}
 #img{
     width: 60px;
     height: 60px;position: absolute;
@@ -103,6 +106,7 @@ padding:0;
     right:0;
 }
 #inner{
+  width: 100%;
   margin-top: 46px;
   overflow: auto;
   display: flex;

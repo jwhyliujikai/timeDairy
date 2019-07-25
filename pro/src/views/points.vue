@@ -16,7 +16,7 @@
 
 <script>
 import axios from 'axios'
-var token=localStorage.getItem("Token") 
+
 export default{
 	data(){
 		return {
@@ -29,6 +29,7 @@ export default{
    }
 	},
 	mounted(){
+		var token=localStorage.getItem("Token") 
 		if(token==null){
     	this.points=0
     	}else{

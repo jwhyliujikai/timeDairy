@@ -45,7 +45,6 @@
 import axios from 'axios';
 import {Toast} from "vant"
 import Zhan from "../components/zhanwei"
-var token=localStorage.getItem("Token") 
 export default {
 	components:{
 		"v-cart":Zhan
@@ -169,6 +168,7 @@ export default {
           
         },
         mounted() {
+            var token=localStorage.getItem("Token") 
         	if(!token){
  		//Toast("请先登录")
  	}else{

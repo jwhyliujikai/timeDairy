@@ -15,7 +15,7 @@
 <script>
 import axios from 'axios'
 import { Dialog } from 'vant';
-var token=localStorage.getItem("Token") 
+
 export default{
 	data(){
 		return{
@@ -27,6 +27,7 @@ export default{
        this.$router.go(-1)
     },
     tap(){
+		var token=localStorage.getItem("Token");
     	if(token==null){
     	this.$toast('请先登录哦')
     	}else{

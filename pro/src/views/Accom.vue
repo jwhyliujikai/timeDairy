@@ -11,7 +11,13 @@
         </header>
         <div id="content">
             <ul>
-                <li v-for="item in arr" :key="item"><img :src="item.headImg"></li>
+                <li v-for="item in arr" :key="item">
+                    <router-link tag='img' to="/success" :src="item.headImg"/>
+                    
+                </li>
+                <li v-for='item in 5'>
+                    <router-link tag='img' to="/success" src='https://i02piccdn.sogoucdn.com/73c7f22c1f0d9bd3'/>
+                </li>
             </ul>
         </div>
     </div>
@@ -73,7 +79,6 @@ export default {
         display:flex;
         flex-direction:row;
         justify-content: space-around;
-        
         flex-wrap:wrap
     }
     #content li{
