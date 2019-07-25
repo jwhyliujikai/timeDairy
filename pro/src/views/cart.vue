@@ -146,8 +146,8 @@ export default {
 			//判断当前复选框有没有选中
 				if(this.list[index].check){
 							this.sum -= this.list[index].goodsPrice * 1*100
-						}
-            		
+					}
+	
             	})
            },
            //点击删除按钮
