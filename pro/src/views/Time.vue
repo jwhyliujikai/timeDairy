@@ -97,7 +97,7 @@ import { Toast } from 'vant';
             })
             }else{
                 Toast("请登录后查看")
-                this.$router.push("/login")
+                this.$router.push("/both")
             }
             
         }
