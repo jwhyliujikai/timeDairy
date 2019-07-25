@@ -8,7 +8,8 @@
                  <li v-for="(item,index) in userlist" > 
                     <p @click.stop="attention($event,item.id)">
                         <van-icon name="checked" color="orange" id='icon' size="14" v-show='false'  />
-                        <img  :src='item.headImg'/>
+                        <img src="https://i01piccdn.sogoucdn.com/8241b6992fc487c2" v-if="item.headImg==null"/>
+                        <img  :src='item.headImg' v-else/>
                     </p>
                     <p>{{item.userMonicker}}</p>
                    </li>
