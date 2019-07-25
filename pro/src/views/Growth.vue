@@ -119,6 +119,7 @@ export default {
     }
     header{
         height:46px;
+        width:100%
     }
     #list{
         width:100%;
