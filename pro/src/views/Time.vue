@@ -81,7 +81,7 @@ import { Toast } from 'vant';
                 url:"http://10.8.157.61/showbabydid",
                 params:{userId:token}
             }).then((data)=>{
-                console.log(data)
+                // console.log(data)
                 if(data.data.length==0){
                     this.img=this.$store.state.commheadImg
                 }else{
