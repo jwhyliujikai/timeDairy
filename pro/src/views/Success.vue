@@ -90,7 +90,7 @@ export default {
             this.img= this.arr[0].didImg
         })
         }else{
-            Toast("请登录查看")
+        
         }
        
     }

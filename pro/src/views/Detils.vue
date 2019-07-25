@@ -39,13 +39,20 @@ export default {
         }
     },
     mounted(){
+            var Token = localStorage.getItem("Token")
              axios({
             method:"get",
             url:"http://10.8.157.61/showbabydid",
-            params:{userId:2}
+            params:{userId:Token}
              }).then((data)=>{
-
-               this.arr=data.data
+                if(data.data.length==0){
+                    this.img=this.$store.state.commheadImg
+                }else{
+                     this.arr=data.data
+                }
+              
+             }).catch((error)=>{
+                 
              })
       
        

@@ -179,7 +179,7 @@ export default {
         })
        }else{
            Toast("请登录查看")
-           this.$router.push("/login")
+        
        }
        
 

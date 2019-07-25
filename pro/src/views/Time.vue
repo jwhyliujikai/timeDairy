@@ -75,13 +75,15 @@ import { Toast } from 'vant';
         },
         mounted(){
             if(localStorage.getItem("Token")){
+                
                 var token = localStorage.getItem("Token")
                 axios({
                 method:"get",
                 url:"http://10.8.157.61/showbabydid",
                 params:{userId:token}
             }).then((data)=>{
-                console.log(data)
+                // console.log(data)
+
                 if(data.data.length==0){
                     this.img=this.$store.state.commheadImg
                 }else{
@@ -96,8 +98,7 @@ import { Toast } from 'vant';
               
             })
             }else{
-                Toast("请登录后查看")
-                this.$router.push("/login")
+                
             }
             
         }
