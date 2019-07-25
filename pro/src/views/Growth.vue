@@ -206,12 +206,26 @@ export default {
     }
    #list{
        width: 85%;
-       background: pink;
+       background: #f2f2f2;
        height: 100px;
        /* margin:10px 0;  */
        margin:10px auto;
        border-radius: 20px;
        padding: 10px;
+       display:flex;
+    justify-content:center;
        
    }
+    #uls{
+        width:92%;
+        height:20%;
+        border-radius:10px;
+        padding:3% 3%;
+       
+    }
+    #uls li ul{
+        display:flex;
+        justify-content:space-between;
+        margin:2% 0
+    }
 </style>
