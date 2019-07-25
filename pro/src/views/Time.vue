@@ -135,7 +135,7 @@ import { Toast } from 'vant';
 
     }
     #wq_box :nth-child(2){
-        height:50%;
+        height:50px;
         width:100%;
         display:flex;
         justify-content: center;
@@ -144,11 +144,11 @@ import { Toast } from 'vant';
      }
       #wq_box :nth-child(2) img{
           width:100px;
-          height:100px;
+          height:100%;
           border-radius:50px
       }
     #wq_box :nth-child(3){
-        height:40%;
+        height:46px;
         width:100%;
         display:flex;
         justify-content:space-around
@@ -165,7 +165,7 @@ import { Toast } from 'vant';
     /* header 结束 */
 
     #wq_content{
-        height:70%;
+        height:60%;
         width:100%;
         background: #fff;
         

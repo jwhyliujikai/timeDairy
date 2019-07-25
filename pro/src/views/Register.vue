@@ -7,22 +7,24 @@
         </header>
 
         <div id="content">
-            <div id="text1">
-                <van-icon name="contact" size="30px"/>
-                <input type="text" placeholder="用户名 字母1-16位" v-model="username" @blur="username1">
-            </div>
-           
-            <div id="text2">
-                <van-icon name="bag-o" size="30px"/>
-                <input type="password" placeholder="密码" v-model="password">
-            </div>
-            <div id="text3">
-                <van-icon name="envelop-o" size="30px"/>
-                <input type="text" placeholder="邮箱" v-model="email" @blur="email1">
-            </div>
-            <div id="text4">
-                <van-icon name="upgrade" size="30px"/>
-                <input type="text" placeholder="电话" v-model="phone" @blur="phone1">
+            <div id="content1">
+                <div id="text1">
+                    <van-icon name="contact" size="30px"/>
+                    <input type="text" placeholder="用户名 字母1-16位" v-model="username" @blur="username1">
+                </div>
+            
+                <div id="text2">
+                    <van-icon name="bag-o" size="30px"/>
+                    <input type="password" placeholder="密码" v-model="password">
+                </div>
+                <div id="text3">
+                    <van-icon name="envelop-o" size="30px"/>
+                    <input type="text" placeholder="邮箱" v-model="email" @blur="email1">
+                </div>
+                <div id="text4">
+                    <van-icon name="upgrade" size="30px"/>
+                    <input type="text" placeholder="电话" v-model="phone" @blur="phone1">
+                </div>
             </div>
         </div>
         <footer>
@@ -124,47 +126,59 @@ export default {
 
     }
     /* 外层box 结束 */
-    header{
-            height:50%;
+     header{
+            height:10%;
             width:100%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
-            
-
     }
     header img{
         width:20%;
-        height:15%;
+        height:45px;
         border-radius:50px;
         display: inline-block;
 
     }
-    #logins{
+    header #logins:hover{
+        background: #ffb64b
+    }
+    header #registers:hover{
+          background: #ffb64b
+    }
+     #logins{
         width:25%;
-        height:15%;
+        height:45px;
         background: #e8e7e7;
-        text-align: center;
-        line-height:100%
+        line-height: 100%;
        
     }
     #registers{
         width:25%;
-        height:15%;
+        height:45px;
         background: #e8e7e7;
-        line-height:100%
+        line-height: 100%;
+
     }
 
-    #content{
-            height:50%;
+   #content{
+            flex:1;
+            
+            display:flex;
+            flex-direction:column-reverse
+           
+
+    }
+    #content1{
             width:100%;
             background:#fff;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-        
-            
+            overflow: hidden;
+            height:300px;
+ 
     }
     #text1{
             width:90%;
