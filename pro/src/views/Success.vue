@@ -36,6 +36,7 @@
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import axios from "axios"
+import { Toast } from 'vant';
 export default {
    
     
@@ -76,17 +77,22 @@ export default {
         swiperSlide
     },
     mounted(){
-        axios({
+        if(localStorage.getItem("Token")){
+            var Token = localStorage.getItem("Token")
+
+             axios({
             method:"get",
             url:"http://10.8.157.61/showbabydid",
-            params:{userId:2}
+            params:{userId:Token}
         }).then((data)=>{
             var data = data.data
             this.arr=data
-            
-          
             this.img= this.arr[0].didImg
         })
+        }else{
+            Toast("请登录查看")
+        }
+       
     }
    
     }
