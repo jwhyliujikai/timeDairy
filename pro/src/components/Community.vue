@@ -76,7 +76,17 @@ export default {
                 if($(el).html()=='取消关注'){
                     Toast('已取消关注')
                     $(el).html('+关注');
+
                 }else{ 
+                    axios({
+                    url:'http://10.8.157.61/addAtt',
+                    params:{
+                      userId:localStorage.getItem("Token"),
+                      addUserAttId:a
+                    }
+                  }).then((data)=>{
+                    
+                  })
                     Toast('已关注')
                     $(el).html('取消关注');
 
