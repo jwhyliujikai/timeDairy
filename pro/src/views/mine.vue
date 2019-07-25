@@ -65,7 +65,7 @@ export default {
       })
 // 		Toast("请先登录")
  	}else{
- 	
+ 	 this.nameimg=this.$store.state.commheadImg;
  	}
  	
  },

@@ -125,6 +125,7 @@ export default {
             },
             //点击加号
             jia(index,id,num){
+            	var token=localStorage.getItem("Token") 
             	axios({
             		url:"http://10.8.157.61/addShop",
             		params:{goodsId:id,goodsNum:1,userId:token}
@@ -137,6 +138,7 @@ export default {
            },
            //点击减按钮
             jian(index,id,num){
+            	var token=localStorage.getItem("Token") 
             	axios({
             		url:"http://10.8.157.61/addShop",
             		params:{goodsId:id,goodsNum:-1,userId:token}
@@ -150,13 +152,15 @@ export default {
            },
            //点击删除按钮
            del(id,index){
+           	var token=localStorage.getItem("Token") 
            	var num=-this.list[index].goodsNum-1
            	axios({
             		url:"http://10.8.157.61/addShop",
             		params:{goodsId:id,goodsNum:num,userId:token}
             	}).then((data)=>{
             		console.log(data)
-            		//location.reload()
+            		  this.checked = false;
+            		  this.sum=0
             		axios({
             			url:"http://10.8.157.61/shoptro",
             			params:{goodsId:id,goodsNum:num,userId:token}
