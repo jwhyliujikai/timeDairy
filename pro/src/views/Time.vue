@@ -75,6 +75,7 @@ import { Toast } from 'vant';
         },
         mounted(){
             if(localStorage.getItem("Token")){
+                
                 var token = localStorage.getItem("Token")
                 axios({
                 method:"get",
@@ -97,8 +98,7 @@ import { Toast } from 'vant';
               
             })
             }else{
-                Toast("请登录后查看")
-                this.$router.push("/both")
+                
             }
             
         }

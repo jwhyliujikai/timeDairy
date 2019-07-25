@@ -51,6 +51,8 @@ export default {
                      this.arr=data.data
                 }
               
+             }).catch((error)=>{
+                 
              })
       
        

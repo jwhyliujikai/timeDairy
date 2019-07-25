@@ -26,6 +26,7 @@
 
 <script>
 import axios from 'axios';
+import { Toast } from 'vant';
 export default {
     
     data(){
@@ -53,6 +54,8 @@ export default {
                    
                     this.arr=data.data
                 })
+            }else{
+                
             }
         }
 }
