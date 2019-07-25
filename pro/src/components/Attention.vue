@@ -60,7 +60,7 @@ export default {
     yjgz(){
       if(!localStorage.getItem('Token')){
           Toast('请先登录');
-          this.$router.push("/login")
+          this.$router.push("/both")
       }else{
             if(this.attionslist.length==0){
               this.$router.push('/community');

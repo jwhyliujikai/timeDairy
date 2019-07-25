@@ -95,7 +95,8 @@ padding:0;
 }
 #img{
     width: 60px;
-    height: 60px;position: absolute;
+    height: 60px;
+    position: absolute;
     top: 0px;
   left: 20px;
   margin-top: 10px;
@@ -211,5 +212,8 @@ display: -webkit-box;
   color:#666;
   margin-top: 10px;
   text-align: center;
+}
+.van-pull-refresh{
+  width: 100%
 }
 </style>
