@@ -121,7 +121,8 @@ export default {
         height:46px;
     }
     #list{
-        flex:1;
+        width:100%;
+        height:100%;
         margin-top:3%;
         display:flex;
         justify-content:center;

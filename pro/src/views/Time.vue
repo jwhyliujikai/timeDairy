@@ -135,7 +135,7 @@ import { Toast } from 'vant';
 
     }
     #wq_box :nth-child(2){
-        height:50px;
+        height:100px;
         width:100%;
         display:flex;
         justify-content: center;
