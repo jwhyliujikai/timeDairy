@@ -9,8 +9,6 @@
 		<div style="margin-top:50px;">
 			我的积分:<span >{{points}}</span>
 		</div>
-		
-		
 	</div>
 </template>
 
