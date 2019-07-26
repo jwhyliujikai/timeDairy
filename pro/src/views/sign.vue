@@ -33,7 +33,7 @@ export default{
     	}else{
     		var _this=this
     	axios({
-    		url:"http://10.8.157.61/sign",
+    		url:"http://47.95.218.254/sign",
     		params:{userId:token}
     	}).then((data)=>{
     		console.log(data.data)
@@ -48,7 +48,7 @@ export default{
 				//var time = hour + ':' + min + ':' + ms
 				if(hour==0&&min==0&&ms==0){
 				axios({
-	    		url:"http://10.8.157.61/updatesign",
+	    		url:"http://47.95.218.254/updatesign",
 				params: {
 				userId: 22
 				}

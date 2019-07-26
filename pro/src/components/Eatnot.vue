@@ -46,7 +46,7 @@ export default {
     methods: {
         change(){            
             axios({
-            url:'http://10.8.157.61/queryfoods',
+            url:'http://47.95.218.254/queryfoods',
             params:{foodsName:this.value}
         }).then((data)=>{
 
@@ -56,7 +56,7 @@ export default {
         },
         onSearch(){ 
             axios({
-            url:'http://10.8.157.61/queryfoods',
+            url:'http://47.95.218.254/queryfoods',
             params:{foodsName:this.value}
         }).then((data)=>{
           this.data=data.data;

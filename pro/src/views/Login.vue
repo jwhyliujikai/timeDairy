@@ -65,7 +65,7 @@ export default {
             
             axios({
                     method:"get",
-                    url:"http://10.8.157.61/login",
+                    url:"http://47.95.218.254/login",
                     params:{password:this.passWord,username:this.userName}
                 }).then((data)=>{
                     var data = data.data                   

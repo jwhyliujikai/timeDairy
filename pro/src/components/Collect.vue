@@ -4,10 +4,10 @@
             <van-tab title="食谱">
                 <ul class="l-shipu">
                     <router-link tag='li' v-for='item in list' to='/detail'>
-                        <img :src="item.recipeImgUrl"/>
+                        <img :src="item.foodsImgUrl"/>
                         <div class="l-infor">
-                            <h3>{{item.recipeName}}</h3>
-                            <p>{{item.recipeDesc}}</p>
+                            <h3>{{item.foodsName}}</h3>
+                            <p>{{item.foodsDesc}}</p>
                         </div>
                     
                     </router-link>
@@ -34,7 +34,7 @@ export default {
     mounted(){
         this.$emit('toparent',this.title);
         axios({
-            url:'http://tfg95g.natappfree.cc/recipe'
+            url:'http://47.95.218.254/recipe'
         }).then((data)=>{
            // console.log(data.data)
             this.list=data.data
@@ -50,7 +50,7 @@ export default {
     .l-shipu li{
         width: 93vw;
         height: 150px;
-        border:1px solid red;   
+        /* border:1px solid red;    */
         display: flex;
         justify-content: space-between;
         align-items: center
@@ -63,7 +63,7 @@ export default {
     .l-shipu .l-infor{
         width:60vw;
         height: 80px;
-        background: red;
+        /* background: red; */
 
     }
 </style>

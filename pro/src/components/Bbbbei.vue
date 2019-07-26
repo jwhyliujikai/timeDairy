@@ -33,7 +33,7 @@ export default {
   },
   mounted(){
     this.$emit("titleText",this.title);
-     axios('http://10.8.157.61/goodsList').then((data)=>{
+     axios('http://47.95.218.254/goodsList').then((data)=>{
             this.list=data.data;
             // console.log(this.list);
         })

@@ -34,7 +34,7 @@ export default{
     	this.points=0
     	}else{
     		axios({
-    		url:"http://10.8.157.61/integral",
+    		url:"http://47.95.218.254/integral",
     		params:{userId:token}
     	}).then((data)=>{
     		console.log(data)

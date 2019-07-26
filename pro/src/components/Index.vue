@@ -57,14 +57,14 @@ export default {
     },
     mounted(){
         axios({
-            url:'http://10.8.157.61/bannerUrl'
+            url:'http://47.95.218.254/bannerUrl'
         }).then((data)=>{
             
            this.list = data.data;
           
         }),
         axios({
-            url:'http://10.8.157.61/essay'
+            url:'http://47.95.218.254/essay'
         }).then((data)=>{    
            // console.log(data) 
            this.list1 = data.data;

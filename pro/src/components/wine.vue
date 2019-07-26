@@ -28,7 +28,7 @@ export default {
          //console.log(this.$route.query.a);
         
         axios({
-            url:'http://10.8.157.61/foodsinfo',
+            url:'http://47.95.218.254/foodsinfo',
             params:{foodsId:this.$route.query.a}
         }).then((data)=>{
         

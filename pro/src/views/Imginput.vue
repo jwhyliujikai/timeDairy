@@ -66,7 +66,7 @@ export default {
                 
                 axios({
                 method:"post",
-                url:"http://10.8.157.61/upLoadImg",
+                url:"http://47.95.218.254/upLoadImg",
                 dataType:"json",
                 data:{userId:24,imgUrl:this.strs,imgDesc:this.text1},
                 headers: {'Content-Type':'multipart/form-data'},

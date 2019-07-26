@@ -79,7 +79,7 @@ export default {
 
                 }else{ 
                     axios({
-                    url:'http://10.8.157.61/addAtt',
+                    url:'http://47.95.218.254/addAtt',
                     params:{
                       userId:localStorage.getItem("Token"),
                       addUserAttId:a
@@ -116,7 +116,7 @@ export default {
             
             //调用相应的接口的数据
             axios({
-                url:"http://10.8.157.61/getCommunityByType",
+                url:"http://47.95.218.254/getCommunityByType",
                 params:{comTypeId:a}
             }).then((data)=>{
                 this.list=data.data;
@@ -145,7 +145,7 @@ export default {
                 this.isLoading = false;
                 //下拉刷新数据请求
                axios({
-                    url:"http://10.8.157.61/getCommunityByType",
+                    url:"http://47.95.218.254/getCommunityByType",
                     params:{comTypeId:1}
                 }).then((data)=>{
                 this.list=data.data;
@@ -158,7 +158,7 @@ export default {
         this.$emit("titleText",this.title);
         //默认展示的用户社区数据
           axios({
-            url:"http://10.8.157.61/getCommunityByType",
+            url:"http://47.95.218.254/getCommunityByType",
             params:{comTypeId:1}
         }).then((data)=>{
            this.list=data.data;
@@ -166,7 +166,7 @@ export default {
            
         })
         //获取社区信息类型
-        axios('http://10.8.157.61/comTypeList').then((data)=>{
+        axios('http://47.95.218.254/comTypeList').then((data)=>{
             this.typelist=data.data;
             
         })

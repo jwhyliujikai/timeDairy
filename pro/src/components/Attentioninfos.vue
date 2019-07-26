@@ -64,7 +64,7 @@ export default {
         this.$toast('刷新成功');
         this.isLoading = false;
          axios({
-            url:"http://10.8.157.61/attList",
+            url:"http://47.95.218.254/attList",
             params:{userId:localStorage.getItem('Token')}
           }).then((data)=>{
             this.list=data.data;
@@ -75,7 +75,7 @@ export default {
   },
   mounted(){
     axios({
-      url:"http://10.8.157.61/attList",
+      url:"http://47.95.218.254/attList",
       params:{userId:localStorage.getItem('Token')}
     }).then((data)=>{
       this.list=data.data;

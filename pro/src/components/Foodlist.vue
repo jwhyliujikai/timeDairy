@@ -27,7 +27,7 @@ export default {
     },
     mounted(){
         axios({
-         url:"http://10.8.157.61/foodstype"
+         url:"http://47.95.218.254/foodstype"
     }).then((data)=>{
        // console.log(data.data)
         this.list=data.data

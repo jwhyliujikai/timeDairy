@@ -51,7 +51,7 @@ export default {
     } 
     this.$emit("titleText",this.title);
     axios({
-        url:'http://10.8.157.61/getGoodsByType',
+        url:'http://47.95.218.254/getGoodsByType',
         params:{
           goodsTypeId:id,
           num:4
