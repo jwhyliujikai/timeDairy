@@ -7,11 +7,11 @@
     <div style="display:flex;justify-content: center;align-items:center;flex-direction: column;">
     	<span>我的</span>
     	<div class="cir" style="display:block;height:100px;border-radius:50px;width:100px;background:#eee;margin:15px 0;text-align: center;line-height:100px;overflow: hidden;">
-    		<img :src="this.nameimg" style="height:100px;width: 100px;overflow: hidden;"/>
+    		<img :src="nameimg" style="height:100px;width: 100px;overflow: hidden;"/>
     	
 
     	</div>
-    	<span style="font-size:16px;display: block;">{{name}}</span>
+    	<span style="font-size:16px;display: block;" @click="tap()">{{name}}</span>
     </div>
 </van-row>
 <van-row >
@@ -74,6 +74,11 @@ export default {
    methods:{
         setup(){
           this.$router.push("/setup")
+       },
+       tap(){
+       	if(!localStorage.getItem("Token")){
+       		this.$router.push("/login")
+       	}
        }
    },
 }

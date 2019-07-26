@@ -6,14 +6,12 @@
                      <p>{{demo}}</p>
                 </li>
                 <li>
-                    <img :src="img" alt="头像">
+                    <img :src="nameimg" alt="头像">
                 </li>
                 <li>
                     <span>{{id}}</span>
                     <span>{{title}}</span>
-
                 </li>
-
             </ul>
         </header>
         <div id="wq_content">
@@ -53,7 +51,7 @@ import { Toast } from 'vant';
             value: 50,
             name:"Time",
             arr:[],
-            img:"",
+            nameimg:"",
             title:"",
             id:"",
             demo:""
@@ -79,17 +77,17 @@ import { Toast } from 'vant';
                 var token = localStorage.getItem("Token")
                 axios({
                 method:"get",
-                url:"http://47.95.218.254/showbabydid",
+                url:"http://47.95.218.254/mymain",
                 params:{userId:token}
             }).then((data)=>{
-                // console.log(data)
+                //console.log(data.data.length)
 
                 if(data.data.length==0){
-                    this.img=this.$store.state.commheadImg
+                    this.nameimg=this.$store.state.commheadImg
                 }else{
                       
                 this.arr=data.data
-                this.img = data.data[0].headImg
+                this.nameimg = data.data[0].headImg
                 this.title = data.data[0].userDesc
                 this.id = data.data[0].id
                 this.demo = data.data[0].userId
@@ -98,7 +96,7 @@ import { Toast } from 'vant';
               
             })
             }else{
-                
+                this.nameimg=this.$store.state.commheadImg
             }
             
         }
