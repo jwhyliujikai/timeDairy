@@ -95,10 +95,10 @@ export default {
     }
   },
     mounted(){
-        axios('http://10.8.157.61/goodsList').then((data)=>{
+        axios('http://47.95.218.254/goodsList').then((data)=>{
             this.list=data.data;
         })
-        axios('http://10.8.157.61/typeList').then((data)=>{
+        axios('http://47.95.218.254/typeList').then((data)=>{
             var arr=data.data;
             this.typelist=arr.splice(0,3);
 

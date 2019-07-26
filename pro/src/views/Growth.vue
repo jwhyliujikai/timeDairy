@@ -164,7 +164,7 @@ export default {
         var token = localStorage.getItem("Token");
         axios({
             method:"get",
-            url:"http://10.8.157.61/showBaby",
+            url:"http://47.95.218.254/showBaby",
             params:{userId:token}
         }).then((data)=>{
             

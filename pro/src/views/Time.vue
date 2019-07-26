@@ -79,7 +79,7 @@ import { Toast } from 'vant';
                 var token = localStorage.getItem("Token")
                 axios({
                 method:"get",
-                url:"http://10.8.157.61/showbabydid",
+                url:"http://47.95.218.254/showbabydid",
                 params:{userId:token}
             }).then((data)=>{
                 // console.log(data)

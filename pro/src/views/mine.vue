@@ -50,7 +50,7 @@ export default {
   var token=localStorage.getItem("Token")
  	if(token){
         axios({
-        url:"http://10.8.157.61/mymain",
+        url:"http://47.95.218.254/mymain",
         params:{userId:token}
       }).then((data)=>{
        // console.log(data.data);

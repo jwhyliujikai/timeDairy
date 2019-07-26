@@ -94,7 +94,7 @@ export default {
 
           }else{
                 axios({
-                url:'http://10.8.157.61/addShop',
+                url:'http://47.95.218.254/addShop',
                 params:{
                   userId:localStorage.getItem('Token'),
                   goodsId:this.$route.query.id,
@@ -111,7 +111,7 @@ export default {
     },
     mounted(){
       axios({
-            url:'http://10.8.157.61/getGoodsById',
+            url:'http://47.95.218.254/getGoodsById',
             params:{'goodsId':this.$route.query.id}
         }).then((data)=>{
           

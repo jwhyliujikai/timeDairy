@@ -105,7 +105,7 @@ export default {
     .pro{
         
         display: flex;
-        border: 1px solid red;
+        /* border: 1px solid red; */
         margin-bottom: 10px;
         border: 1px solid red;
         justify-content: space-between;
@@ -115,7 +115,7 @@ export default {
     .read{
         width: 60%;
         height: 100px;
-        background: red;
+        /* background: red; */
         display: flex;
         flex-direction: column;
         justify-content: space-between;

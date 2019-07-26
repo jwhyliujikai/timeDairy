@@ -63,7 +63,7 @@ methods: {
 },
 mounted(){
 	axios({
-		     url:"http://10.8.157.61/myOrder",
+		     url:"http://47.95.218.254/myOrder",
 		     params:{userId:2}
 		      	})
 		      	.then((data)=>{

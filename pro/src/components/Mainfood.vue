@@ -36,7 +36,7 @@ export default {
         //     this
         // }
              axios({
-            url:'http://10.8.157.61/queryfoodsbytypeid',
+            url:'http://47.95.218.254/queryfoodsbytypeid',
             params:{foodsTypeId:_this.$route.params.id}
         }).then((data)=>{
             //console.log(data.data)

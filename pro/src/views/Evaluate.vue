@@ -101,7 +101,7 @@ export default {
         }
     },
     mounted(){
-        axios('http://10.8.157.61/getAppGoods').then((data)=>{
+        axios('http://47.95.218.254/getAppGoods').then((data)=>{
             // console.log(data.data);
             this.list=data.data;
         })

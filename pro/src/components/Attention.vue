@@ -67,7 +67,7 @@ export default {
           }else{
               for(var i=0;i<this.attionslist.length;i++){
                   axios({
-                    url:'http://10.8.157.61/addAtt',
+                    url:'http://47.95.218.254/addAtt',
                     params:{
                       userId:localStorage.getItem("Token"),
                       addUserAttId:this.attionslist[i]
@@ -90,7 +90,7 @@ export default {
       setTimeout(() => {
         this.$toast('刷新成功');
         this.isLoading = false;
-        axios('http://10.8.157.61/headList').then((data)=>{
+        axios('http://47.95.218.254/headList').then((data)=>{
           this.userlist=data.data;
           $('#nav li i').css({'display':'none'})
         })
@@ -98,7 +98,7 @@ export default {
     }
   },
   mounted(){
-    axios('http://10.8.157.61/headList').then((data)=>{
+    axios('http://47.95.218.254/headList').then((data)=>{
       this.userlist=data.data;
     })
   }

@@ -84,7 +84,7 @@ export default {
     mounted(){
       
         axios({
-            url:'http://10.8.157.61/getGoodsById',
+            url:'http://47.95.218.254/getGoodsById',
             params:{'goodsId':this.$route.query.id}
         }).then((data)=>{
           

@@ -62,7 +62,7 @@ export default {
     },
   mounted(){
         axios({
-            url:'http://10.8.157.61/bannerUrl'
+            url:'http://47.95.218.254/bannerUrl'
         }).then((data)=>{
             
            this.list = data.data;
@@ -70,7 +70,7 @@ export default {
         }),
 
          axios({
-            url:'http://10.8.157.61/recipe'
+            url:'http://47.95.218.254/recipe'
         }).then((data)=>{
             console.log (data)
            this.data = data.data;
@@ -78,7 +78,7 @@ export default {
         }),
 
         axios({
-            url:'http://10.8.157.61/recipe'
+            url:'http://47.95.218.254/recipe'
         }).then((data)=>{
             console.log(data.data)
             this.arr = data.data;

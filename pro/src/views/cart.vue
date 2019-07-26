@@ -127,7 +127,7 @@ export default {
             jia(index,id,num){
             	var token=localStorage.getItem("Token") 
             	axios({
-            		url:"http://10.8.157.61/addShop",
+            		url:"http://47.95.218.254/addShop",
             		params:{goodsId:id,goodsNum:1,userId:token}
             	}).then((data)=>{
 						if(this.list[index].check){
@@ -140,7 +140,7 @@ export default {
             jian(index,id,num){
             	var token=localStorage.getItem("Token") 
             	axios({
-            		url:"http://10.8.157.61/addShop",
+            		url:"http://47.95.218.254/addShop",
             		params:{goodsId:id,goodsNum:-1,userId:token}
             	}).then((data)=>{
 			//判断当前复选框有没有选中
@@ -155,14 +155,14 @@ export default {
            	var token=localStorage.getItem("Token") 
            	var num=-this.list[index].goodsNum-1
            	axios({
-            		url:"http://10.8.157.61/addShop",
+            		url:"http://47.95.218.254/addShop",
             		params:{goodsId:id,goodsNum:num,userId:token}
             	}).then((data)=>{
             		console.log(data)
             		  this.checked = false;
             		  this.sum=0
             		axios({
-            			url:"http://10.8.157.61/shoptro",
+            			url:"http://47.95.218.254/shoptro",
             			params:{goodsId:id,goodsNum:num,userId:token}
             		}).then((data)=>{
             			this.list=data.data
@@ -177,7 +177,7 @@ export default {
  		//Toast("请先登录")
  	}else{
             axios({
-                url:'http://10.8.157.61/shoptro',
+                url:'http://47.95.218.254/shoptro',
                 params:{userId:token}
             }).then((data)=>{
                 this.list =data.data
