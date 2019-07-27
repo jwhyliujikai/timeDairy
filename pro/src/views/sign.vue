@@ -27,11 +27,11 @@ export default{
        this.$router.go(-1)
     },
     tap(){
-		var token=localStorage.getItem("Token");
+    	var token=localStorage.getItem("Token");
     	if(token==null){
     	this.$toast('请先登录哦')
     	}else{
-    		var _this=this
+    		var _this=this 
     	axios({
     		url:"http://47.95.218.254/sign",
     		params:{userId:token}
@@ -39,32 +39,31 @@ export default{
     		console.log(data.data)
     		var code=data.data
     		if(code==0){
-    			_this.$toast('今天已经签到了');
+    			_this.$toast('今天已经签到了');}
+    		if(code==1){
+    			_this.$toast('签到成功');
+    		}	
+    	})
+    	}
+    }
+  },
+  mounted(){
+  	var token=localStorage.getItem("Token");
     			var date = new Date();
-				var min = date.getMinutes()
 				var hour = date.getHours()
 				var min = date.getMinutes()
 				var ms = date.getSeconds()
+				console.log(hour,min,ms)
 				//var time = hour + ':' + min + ':' + ms
-				if(hour==0&&min==0&&ms==0){
+				if(hour==8&&min==0&&ms==0){
 				axios({
 	    		url:"http://47.95.218.254/updatesign",
 				params: {
-				userId: 22
+				userId: token
 				}
 				})
 				}
-    		}
-    		if(code==1){
-    			_this.$toast('签到成功');
-    		}
-    		
-    	})
-    	}
-    	
-    	
-    }
-  },
+  }
 
 }</script>
 
